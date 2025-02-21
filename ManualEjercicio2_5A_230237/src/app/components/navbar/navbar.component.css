@@ -1,0 +1,7 @@
+.sticky-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 4px 0 4px;
+}
