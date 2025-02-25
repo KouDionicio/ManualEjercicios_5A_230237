@@ -1,11 +1,18 @@
 <app-navbar></app-navbar>
 
-<h1 class="text-3xl font-bold text-center mt-10" >
-  Holaaaaaa Angular, <span class="text-blue-400">Tailwind CSS </span> 
-</h1>
+<div class="container">
+  <app-sidebar></app-sidebar>
 
-<div class="text-center mt-10">
-  <button mat-raised-button color="primary">
-    Tocameeeeeee
-  </button>
+  <app-page-container>
+
+    <div class="container2">
+      <app-breadcrumb></app-breadcrumb>
+    </div>
+
+    <div class="container3">
+      <app-footer></app-footer>
+    </div>
+    
+  </app-page-container>
 </div>
+

@@ -1,0 +1,33 @@
+app-navbar{
+    display: flex;
+    height: 7vh;
+}
+
+.container{
+    display: flex;
+    flex: 1;
+    height: 95vh;
+    
+}
+
+.container app-sidebar{
+    flex: 0 0 40%;
+    height: 100%;
+}
+
+.container app-page-container{
+    flex:  0 0 90%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container2{
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+
+.container2 app-breadcrumb{
+    height: 100%;
+}
