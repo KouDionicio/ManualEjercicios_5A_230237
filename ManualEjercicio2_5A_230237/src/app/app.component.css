@@ -2,6 +2,18 @@ app-navbar{
     display: flex;
     height: 7vh;
 }
+app-sidebar {
+    background-color: lightpink;
+}
+app-page-container {
+    background-color: lightcyan;
+}
+app-footer {
+    background-color: lightgreen;
+}
+app-breadcrum {
+    background-color: rgb(51, 186, 231);
+}
 
 .container{
     display: flex;
@@ -22,12 +34,24 @@ app-navbar{
 
 }
 
-.container2{
+
+.container2 {
+    flex: 1; /* Permite que container2 se expanda */
     display: flex;
-    flex: 1;
-    height: 100%;
+    flex-direction: column;
 }
 
-.container2 app-breadcrumb{
-    height: 100%;
+.container2 app-breadcrumb {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+  
+.container2 app-footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
 }
