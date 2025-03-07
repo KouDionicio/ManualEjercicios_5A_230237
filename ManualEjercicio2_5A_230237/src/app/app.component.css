@@ -1,56 +1,71 @@
-app-navbar{
+/* Reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Estilos para el navbar */
+app-navbar {
     display: flex;
     height: 7vh;
-}
-app-sidebar {
-    background-color: lightpink;
-}
-app-page-container {
-    background-color: lightcyan;
-}
-app-footer {
-    background-color: lightgreen;
-}
-app-breadcrum {
-    background-color: rgb(51, 186, 231);
+    background-color: teal;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
 }
 
-.container{
+/* Contenedor de contenido */
+.content-wrapper {
     display: flex;
     flex: 1;
-    height: 95vh;
-    
+    height: calc(100vh - 7vh); /* Resta la altura del navbar */
 }
 
-.container app-sidebar{
-    flex: 0 0 40%;
+/* Estilos para el sidebar */
+app-sidebar {
+    background-color: lightpink;
+    flex: 0 0 40%; /* Ocupa el 40% del ancho */
     height: 100%;
 }
 
-.container app-page-container{
-    flex:  0 0 90%;
-    display: flex;
-    flex-direction: column;
-
-}
-
-
-.container2 {
-    flex: 1; /* Permite que container2 se expanda */
+/* Contenedor de contenido principal */
+.content-area {
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.container2 app-breadcrumb {
-    background-color: #f4f4f4;
+/* Estilos para el page-container */
+app-page-container {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    background-color: lightcyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Estilos para el breadcrumb */
+app-breadcrumb {
+    background-color: rgb(51, 186, 231);
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 15px;
 }
-  
-.container2 app-footer {
-    background-color: #333;
-    color: white;
+
+/* Estilos para el footer */
+app-footer {
+    background-color: lightgreen;
+    color: black;
     padding: 10px;
     text-align: center;
     margin-top: auto;

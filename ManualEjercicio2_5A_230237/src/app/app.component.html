@@ -1,19 +1,16 @@
-<app-navbar></app-navbar>
+<div class="page-container">
 
-<div class="container">
-	<app-sidebar></app-sidebar>
+	<app-navbar></app-navbar>
 
-	<app-page-container>
+	<div class="content-wrapper">
+		<app-sidebar></app-sidebar>
 
-		<div class="container2">
-			<app-breadcrumb>
-				<span>Inicio</span> > <span>Página</span> > <span>Subpágina</span>
-			</app-breadcrumb>
+		<div class="content-area">
+			<app-breadcrumb></app-breadcrumb>
 
-			<app-footer>
-				<p>© 2025 Tu Empresa</p>
-			</app-footer>
+			<app-page-container></app-page-container>
+			<app-footer></app-footer>
 		</div>
 
-	</app-page-container>
+	</div>
 </div>
