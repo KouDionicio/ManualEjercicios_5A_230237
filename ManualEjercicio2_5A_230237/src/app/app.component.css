@@ -10,17 +10,20 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color: #1e1e1e; /* Fondo oscuro para el contenedor principal */
 }
 
 /* Estilos para el navbar */
 app-navbar {
     display: flex;
     height: 7vh;
-    background-color: teal;
-    align-items: center;
-    padding: 10px;
+    background: linear-gradient(to right, #1a202c, #2d3748); /* Azul oscuro + gris oscuro */
     color: white;
+    align-items: center;
+    padding: 15px;
     font-weight: bold;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 /* Contenedor de contenido */
@@ -28,45 +31,114 @@ app-navbar {
     display: flex;
     flex: 1;
     height: calc(100vh - 7vh); /* Resta la altura del navbar */
+    overflow: hidden;
 }
 
 /* Estilos para el sidebar */
 app-sidebar {
-    background-color: lightpink;
-    flex: 0 0 40%; /* Ocupa el 40% del ancho */
+    background-color: #2d3748; /* Gris oscuro */
+    color: #f7fafc; /* Blanco sucio para contraste */
+    flex: 0 0 250px; /* Fijo para el sidebar */
     height: 100%;
+    overflow-y: auto;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* Sombra sutil en el sidebar */
 }
 
-/* Contenedor de contenido principal */
+/* Estilos para el contenido principal */
 .content-area {
     flex: 1;
     display: flex;
     flex-direction: column;
+    background-color: #121212; /* Fondo oscuro */
+    color: #f7fafc; /* Texto blanco para buena legibilidad */
 }
 
 /* Estilos para el page-container */
 app-page-container {
-    flex: 1; /* Ocupa todo el espacio disponible */
-    background-color: lightcyan;
+    flex: 1;
+    background-color: #1a202c; /* Fondo oscuro con un leve toque azulado */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     padding: 20px;
+    height: 100%;
+    overflow-y: auto;
 }
 
 /* Estilos para el breadcrumb */
 app-breadcrumb {
-    background-color: rgb(51, 186, 231);
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    background-color: #4a5568; /* Gris oscuro */
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #f7fafc; /* Blanco sucio */
 }
 
 /* Estilos para el footer */
 app-footer {
-    background-color: lightgreen;
-    color: black;
-    padding: 10px;
+    background-color: #2d3748; /* Gris oscuro */
+    color: #f7fafc; /* Blanco sucio */
+    padding: 12px;
     text-align: center;
     margin-top: auto;
+    font-size: 14px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave en el footer */
+}
+
+/* Estilos para los enlaces del menú de navegación */
+nav a {
+    text-decoration: none;
+    color: #edf2f7; /* Blanco sucio */
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #3182ce; /* Azul cuando pasa el mouse */
+    color: #fff; /* Blanco cuando pasa el mouse */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Estilos para el avatar del usuario */
+.user-avatar {
+    border: 2px solid #edf2f7;
+    background-color: #2b6cb0; /* Azul oscuro para el avatar */
+}
+
+/* Sombra para los botones */
+button {
+    background-color: #4a5568; /* Gris oscuro */
+    color: #f7fafc;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3182ce; /* Azul al pasar el mouse */
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para el menú desplegable */
+.navbar-dropdown {
+    background-color: #2d3748; /* Gris oscuro */
+    color: #edf2f7; /* Blanco sucio */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.navbar-dropdown a {
+    color: #edf2f7;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.navbar-dropdown a:hover {
+    background-color: #3182ce; /* Azul al pasar el mouse */
+    color: white;
 }
