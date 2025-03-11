@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './practica2.component.css'
 })
 export class Practica2Component {
-  city = 'Xicotepec de Juárez'
+  city = 'Xicotepec de Juárez, Puebla'
 }

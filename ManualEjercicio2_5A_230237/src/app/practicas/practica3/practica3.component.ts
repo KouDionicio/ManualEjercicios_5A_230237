@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './practica3.component.css'
 })
 export class Practica3Component {
-  username = 'Edwin'
+  username = 'KouDionicio'
 }

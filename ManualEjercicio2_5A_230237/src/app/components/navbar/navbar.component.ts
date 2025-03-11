@@ -5,19 +5,32 @@ import { CommonModule } from '@angular/common';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule] 
 })
 export class NavbarComponent {
-  @Output() logout = new EventEmitter<void>();  // Emitir evento para el logout
-  dropdownOpen = false;  // Estado para controlar el menú desplegable
+  @Output() logout = new EventEmitter<void>();
+  @Output() ejercicioSeleccionado = new EventEmitter<string>();  // Emitir el ejercicio seleccionado
+  dropdownOpen = false;
+  showEjercicios = false;
+  ejercicios = Array.from({ length: 12 }, (_, i) => `Ejercicio ${i + 1}`);
 
   // Llamar al método para "Cerrar sesión"
   onLogout() {
-    this.logout.emit();  // Emitir el evento de logout
+    this.logout.emit();
   }
 
-  // Alternar la visibilidad del dropdown
+  // Alternar la visibilidad del dropdown de usuario
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  // Alternar la visibilidad de la lista de ejercicios
+  toggleEjercicios() {
+    this.showEjercicios = !this.showEjercicios;
+  }
+
+  // Emitir el ejercicio seleccionado
+  mostrarEjercicio(ejercicio: string) {
+    this.ejercicioSeleccionado.emit(ejercicio);
   }
 }

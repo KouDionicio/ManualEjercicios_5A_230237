@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
 export class Practica11Component {
   logoUrl = 'http://localhost:4200/favicon.ico';
   logoAlt = 'Angular logo';
-  username = 'Isaac';
+  username = 'KouDionicio';
 }
