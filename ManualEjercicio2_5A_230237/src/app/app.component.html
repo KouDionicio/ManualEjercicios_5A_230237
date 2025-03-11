@@ -1,16 +1,20 @@
-<!-- app.component.html -->
 <div class="page-container">
-	<app-navbar></app-navbar>
+	<!-- Mostrar el componente de contenido cuando showContent sea true -->
+	<app-content *ngIf="showContent" (contentLoaded)="onShowContent()"></app-content>
+
+	<!-- Mostrar el navbar solo cuando showNavbar sea true -->
+	<app-navbar *ngIf="showNavbar" (logout)="onLogout()"></app-navbar>
 
 	<div class="content-wrapper">
-		<app-sidebar></app-sidebar>
+		<!-- Mostrar el sidebar y breadcrumb solo cuando showMainContent sea true -->
+		<app-sidebar *ngIf="showMainContent"></app-sidebar>
 
 		<div class="content-area">
-			<app-breadcrumb></app-breadcrumb>
+			<app-breadcrumb *ngIf="showMainContent"></app-breadcrumb>
 
-			<!-- Aquí es donde se deben cargar los componentes de las rutas -->
+			<!-- Aquí se cargarán los componentes de las rutas -->
 			<router-outlet></router-outlet>
-
+			<app-page-container></app-page-container>
 			<app-footer></app-footer>
 		</div>
 	</div>

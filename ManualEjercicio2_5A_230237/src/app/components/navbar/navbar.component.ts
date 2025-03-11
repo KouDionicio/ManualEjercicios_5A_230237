@@ -1,15 +1,23 @@
-import  {Component} from '@angular/core';
-import  {MatToolbarModule} from '@angular/material/toolbar';
-import  {MatButtonModule} from '@angular/material/button';
-import  {MatIconModule} from '@angular/material/icon';
-import  {MatMenuModule} from '@angular/material/menu';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
-  imports: [MatButtonModule,MatIconModule,MatMenuModule,MatToolbarModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css'],
+  imports: [CommonModule]
 })
 export class NavbarComponent {
+  @Output() logout = new EventEmitter<void>();  // Emitir evento para el logout
+  dropdownOpen = false;  // Estado para controlar el menú desplegable
 
+  // Llamar al método para "Cerrar sesión"
+  onLogout() {
+    this.logout.emit();  // Emitir el evento de logout
+  }
+
+  // Alternar la visibilidad del dropdown
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
 }
