@@ -5,14 +5,14 @@
     box-sizing: border-box;
 }
 
-/* Aplica el fondo solo al body */
+/* Aplica el fondo solo al body y evita los scrollbars a nivel del body */
 body {
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    /* Fondo oscuro */
+    background-color: #121212; /* Fondo oscuro para toda la página */
     width: 100%;
     height: 100%;
+    overflow: hidden; /* Evita los scrollbars en el body */
 }
 
 /* Navbar */
@@ -20,17 +20,30 @@ app-navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(to right, #1a202c, #2d3748);
-    /* Azul oscuro + gris oscuro */
+    background: linear-gradient(to right, #1a202c, #2d3748); /* Azul oscuro + gris oscuro */
     color: white;
     padding: 10px 20px;
     z-index: 10;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
     height: auto;
-    /* El navbar ocupa solo el espacio necesario */
-    min-height: 60px;
-    /* Asegura una altura mínima */
+    min-height: 60px; /* Asegura una altura mínima */
+}
+
+/* Fondo de la página cuando no hay contenido principal (login) */
+.page-container.logged-out {
+    background-color: #121212; /* Fondo oscuro cuando estamos en login */
+    height: 100vh; /* Asegura que ocupe toda la altura */
+    overflow: hidden; /* Evita los scrollbars en esta vista */
+}
+
+/* Fondo de la página cuando estamos en el contenido principal */
+.page-container.full-height {
+    background-color: #121212; /* Fondo oscuro también cuando estamos logueados */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* El footer irá al final */
+    overflow: auto; /* Permite desplazarse si el contenido es grande */
 }
 
 /* Contenedor dentro del navbar */
@@ -42,162 +55,88 @@ app-navbar .max-w-screen-xl {
     margin: 0 auto;
 }
 
-/* Logo y título */
-app-navbar .flex a {
+/* Estilos para el contenedor de la página cuando el usuario ha cerrado sesión */
+.logged-out .content-wrapper {
+    height: 80vh; /* La altura de la pantalla después de cerrar sesión */
     display: flex;
-    align-items: center;
-    text-decoration: none;
+    flex-direction: row; /* Sidebar a la izquierda y contenido a la derecha */
+    justify-content: flex-start;
+    overflow: hidden; /* Evita los scrollbars en esta vista */
 }
 
-app-navbar .flex img {
-    height: 30px;
-    /* Ajusta el tamaño del logo */
-    margin-right: 10px;
-}
-
-app-navbar .flex span {
-    color: #2d7eb4;
-    /* Blanco sucio */
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Contenedor de contenido */
-.page-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #1e1e1e;
-    /* Fondo oscuro para el contenedor principal */
-}
-
-/* Estilos para el sidebar */
-app-sidebar {
-    background-color: #2d3748;
-    /* Gris oscuro */
-    color: #f7fafc;
-    /* Blanco sucio para contraste */
-    flex: 0 0 250px;
-    /* Fijo para el sidebar */
-    height: 100%;
-    overflow-y: auto;
-    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
-    /* Sombra sutil en el sidebar */
+/* Footer cuando el usuario ha cerrado sesión */
+.logged-out .footer {
+    height: 20vh; /* Footer ocupa el 20% de la pantalla */
 }
 
 /* Contenedor principal (con el navbar fijo en la parte superior) */
 .content-wrapper {
     display: flex;
     flex: 1;
-    height: calc(100vh - 60px);
-    /* Resta la altura del navbar, ajustable según el tamaño */
-    overflow: hidden;
+    height: calc(100vh - 60px); /* Resta la altura del navbar */
+    flex-direction: row; /* Para que el sidebar esté a la izquierda y el contenido a la derecha */
+    overflow: auto; /* Permite el desplazamiento en el contenido */
 }
 
-/* Estilos para el contenido principal */
+/* Estilos para el sidebar */
+app-sidebar {
+    width: 250px; /* Ajusta el ancho del sidebar según sea necesario */
+    background-color: #1a202c;
+    color: white;
+    padding: 20px;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+/* Estilos para el área de contenido */
 .content-area {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: #121212;
-    /* Fondo oscuro */
-    color: #f7fafc;
-    /* Texto blanco para buena legibilidad */
+    background-color: #121212; /* Fondo oscuro */
+    color: #f7fafc; /* Texto blanco */
+    overflow: auto; /* Permite el desplazamiento en el contenido */
 }
 
 /* Estilos para el breadcrumb */
 app-breadcrumb {
-    background-color: #4a5568;
-    /* Gris oscuro */
+    background-color: #4a5568; /* Gris oscuro */
     padding: 12px;
     margin-bottom: 10px;
     font-size: 14px;
-    color: #f7fafc;
-    /* Blanco sucio */
+    color: #f7fafc; /* Blanco sucio */
 }
 
 /* Estilos para el footer */
 app-footer {
-    background-color: #2d3748;
-    /* Gris oscuro */
-    color: #f7fafc;
-    /* Blanco sucio */
+    background-color: #2d3748; /* Gris oscuro */
+    color: #f7fafc; /* Blanco sucio */
     padding: 12px;
     text-align: center;
     margin-top: auto;
     font-size: 14px;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra suave en el footer */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave en el footer */
 }
 
 /* Estilos para los enlaces del menú de navegación */
 nav a {
     text-decoration: none;
-    color: #edf2f7;
-    /* Blanco sucio */
+    color: #edf2f7; /* Blanco sucio */
     font-size: 16px;
     padding: 8px 16px;
     border-radius: 4px;
 }
 
 nav a:hover {
-    background-color: #3182ce;
-    /* Azul cuando pasa el mouse */
-    color: #fff;
-    /* Blanco cuando pasa el mouse */
-    transition: background-color 0.3s ease;
-    /* Transición suave */
+    background-color: #3182ce; /* Azul cuando pasa el mouse */
+    color: #fff; /* Blanco cuando pasa el mouse */
+    transition: background-color 0.3s ease; /* Transición suave */
 }
 
 /* Estilos para el avatar del usuario */
 .user-avatar {
     border: 2px solid #edf2f7;
-    background-color: #2b6cb0;
-    /* Azul oscuro para el avatar */
-}
-
-/* Sombra para los botones */
-button {
-    background-color: #4a5568;
-    /* Gris oscuro */
-    color: #f7fafc;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #3182ce;
-    /* Azul al pasar el mouse */
-    transition: background-color 0.3s ease;
-}
-
-/* Estilos para el menú desplegable */
-.navbar-dropdown {
-    background-color: #2d3748;
-    /* Gris oscuro */
-    color: #edf2f7;
-    /* Blanco sucio */
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    /* Sombra sutil */
-}
-
-.navbar-dropdown a {
-    color: #edf2f7;
-    padding: 8px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-}
-
-.navbar-dropdown a:hover {
-    background-color: #3182ce;
-    /* Azul al pasar el mouse */
-    color: white;
+    background-color: #2b6cb0; /* Azul oscuro para el avatar */
 }
 
 /* Configuración responsive para dispositivos móviles */
@@ -218,52 +157,27 @@ button:hover {
 
 /* Asegúrate de que el contenedor ocupe toda la pantalla */
 .full-height {
-    height: 100vh;
-    /* Altura completa de la ventana */
+    height: 100vh; /* Altura completa de la ventana */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /* El footer irá al final */
+    justify-content: space-between; /* El footer irá al final */
 }
 
 /* Asegúrate de que el contenedor del contenido principal crezca para ocupar el espacio restante */
 .content-wrapper {
-    flex-grow: 1;
-    /* Esto hace que el área de contenido crezca según el espacio disponible */
+    flex-grow: 1; /* Esto hace que el área de contenido crezca según el espacio disponible */
+    overflow: auto; /* Permite el desplazamiento */
 }
 
-/* Estilo para el formulario de login */
-.login-container {
+/* Para mantener el sidebar en su lugar y permitir el desplazamiento en el contenido */
+.content-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    height: 100%;
+    overflow: auto; /* Permite desplazamiento en el contenido */
 }
 
-form {
-    width: 100%;
-    max-width: 400px;
-    /* Tamaño máximo para el formulario */
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
+/* Estilo del router-outlet (cuando hay un cambio de rutas) */
+router-outlet {
+    flex-grow: 1;
+    overflow: auto; /* Permite desplazamiento en el router-outlet */
 }
