@@ -24,11 +24,13 @@ import { Practica10Component } from './practicas/practica10/practica10.component
 import { Practica11Component } from './practicas/practica11/practica11.component';
 import { Practica12Component } from './practicas/practica12/practica12.component';
 
+// Importar el servicio EjercicioService
+import { EjercicioService } from './ejercicio.service';  // Asegúrate de importar el servicio
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  standalone: true,
   imports: [
     RouterOutlet,
     MatButtonModule,
@@ -61,6 +63,8 @@ export class AppComponent {
   showContent = false;
   ejercicioSeleccionado: string = '';  // Variable para almacenar el ejercicio seleccionado
 
+  constructor(private ejercicioService: EjercicioService) {}
+
   // Método que se llama cuando el usuario hace clic en "Cerrar sesión"
   onLogout() {
     this.showMainContent = false;
@@ -77,6 +81,11 @@ export class AppComponent {
 
   // Método que se llama cuando se selecciona un ejercicio desde el Navbar
   onEjercicioSeleccionado(ejercicio: string) {
-    this.ejercicioSeleccionado = ejercicio;
+    // Si el ejercicio seleccionado es el mismo que el actual, lo desmarcamos
+    if (this.ejercicioSeleccionado === ejercicio) {
+      this.ejercicioSeleccionado = '';  // Desmarcar el ejercicio
+    } else {
+      this.ejercicioSeleccionado = ejercicio;  // Seleccionar el nuevo ejercicio
+    }
   }
 }

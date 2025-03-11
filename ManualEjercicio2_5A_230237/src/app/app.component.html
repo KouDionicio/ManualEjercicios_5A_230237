@@ -8,7 +8,7 @@
 
 	<!-- Mostrar el contenido principal y el footer si showContent es false -->
 	<div *ngIf="!showContent" class="content-wrapper">
-		<app-sidebar *ngIf="showMainContent"></app-sidebar>
+		<app-sidebar *ngIf="showMainContent" [ejercicioSeleccionado]="ejercicioSeleccionado"></app-sidebar>
 
 		<div class="content-area">
 			<app-breadcrumb *ngIf="showMainContent"></app-breadcrumb>
@@ -29,9 +29,6 @@
 					<app-practica11 *ngSwitchCase="'Ejercicio 11'"></app-practica11>
 					<app-practica12 *ngSwitchCase="'Ejercicio 12'"></app-practica12>
 					<!-- Agregar más ejercicios aquí -->
-					<div *ngSwitchDefault>
-						<p>Selecciona un ejercicio para mostrar el contenido.</p>
-					</div>
 				</ng-container>
 			</div>
 
