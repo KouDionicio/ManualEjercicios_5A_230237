@@ -30,6 +30,7 @@ import { ContentComponent } from './components/content/content.component';
     ContentComponent
   ]
 })
+
 export class AppComponent {
   title = 'ManualEjercicio2_5A_230237';
   showMainContent = true;  // Mostrar contenido principal por defecto

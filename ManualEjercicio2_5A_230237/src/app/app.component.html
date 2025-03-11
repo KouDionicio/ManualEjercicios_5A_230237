@@ -1,21 +1,24 @@
-<div class="page-container">
-	<!-- Mostrar el componente de contenido cuando showContent sea true -->
+<div class="page-container" [ngClass]="{ 'full-height': showContent }">
+	<!-- Mostrar el contenido (login) cuando showContent sea true -->
 	<app-content *ngIf="showContent" (contentLoaded)="onShowContent()"></app-content>
-
+  
 	<!-- Mostrar el navbar solo cuando showNavbar sea true -->
 	<app-navbar *ngIf="showNavbar" (logout)="onLogout()"></app-navbar>
-
-	<div class="content-wrapper">
-		<!-- Mostrar el sidebar y breadcrumb solo cuando showMainContent sea true -->
-		<app-sidebar *ngIf="showMainContent"></app-sidebar>
-
-		<div class="content-area">
-			<app-breadcrumb *ngIf="showMainContent"></app-breadcrumb>
-
-			<!-- Aquí se cargarán los componentes de las rutas -->
-			<router-outlet></router-outlet>
-			<app-page-container></app-page-container>
-			<app-footer></app-footer>
-		</div>
+  
+	<!-- Mostrar el contenido principal y el footer si showContent es false -->
+	<div *ngIf="!showContent" class="content-wrapper">
+	  <app-sidebar *ngIf="showMainContent"></app-sidebar>
+	  
+	  <div class="content-area">
+		<app-breadcrumb *ngIf="showMainContent"></app-breadcrumb>
+		
+		<router-outlet></router-outlet>
+		<app-page-container></app-page-container>
+		<app-footer></app-footer>
+	  </div>
 	</div>
-</div>
+	
+	<!-- Mostrar solo el footer cuando showContent es true -->
+	<app-footer *ngIf="showContent"></app-footer>
+  </div>
+  

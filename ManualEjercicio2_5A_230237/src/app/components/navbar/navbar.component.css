@@ -2,59 +2,155 @@
 nav {
     position: relative;
     width: 100%;
-    background: linear-gradient(to right, #2d3748, #1a202c);
-    padding: 8px 16px; /* Reducimos el tamaño */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #3b82f6, #9333ea);  /* Fondo de gradiente de azul a morado */
+    padding: 12px 20px;  /* Un poco más de padding para mejor apariencia */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  /* Sombra difusa más suave */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;  /* Asegura que el navbar esté por encima de otros elementos */
+    transition: all 0.3s ease;  /* Transición suave para los efectos */
 }
 
-/* Menú desplegable */
-nav .navbar-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #2d3748;
-    color: #edf2f7;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: none;
-    z-index: 50;
+/* Logo (Izquierda) */
+nav .flex.items-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-/* Mostrar el menú cuando se activa */
-nav .navbar-dropdown.show {
-    display: block;
+nav .flex.items-center img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;  /* Asegura que la imagen tenga bordes redondeados */
 }
 
-/* Estilos para los enlaces del menú */
-nav .navbar-dropdown a {
-    color: #edf2f7;
-    padding: 8px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
+nav .flex.items-center span {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 10px;
 }
 
-nav .navbar-dropdown a:hover {
-    background-color: #3182ce;
-    color: rgb(206, 14, 14);
+/* Menú de navegación (Centro) */
+nav .items-center {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+nav .items-center ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav .items-center li {
+    display: inline-block;
 }
 
 /* Estilo de los enlaces de navegación */
 nav .items-center a {
-    padding: 8px 15px;
-    border-radius: 5px;
-    background-color: transparent;
-    color: #0d2a47;
+    padding: 10px 20px;
+    color: white;
     font-weight: 500;
-    text-transform: uppercase; /* Mayúsculas para los enlaces */
     font-size: 14px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
 }
 
+/* Hover effect para los enlaces */
 nav .items-center a:hover {
-    background-color: #3182ce;
-    color: rgb(160, 17, 17);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Añade un sutil resplandor */
+}
+
+/* Foto del usuario (Derecha) */
+nav .flex.items-center:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Estilo del botón de usuario */
+nav #user-menu-button {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto de hover en el botón del usuario */
+nav #user-menu-button:hover {
+    background-color: #9333ea;
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(147, 51, 234, 0.6); /* Sombra en hover para un efecto más dinámico */
+}
+
+/* Estilo de la foto del usuario */
+nav #user-menu-button img {
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de hover en la imagen del usuario */
+nav #user-menu-button img:hover {
+    transform: rotate(360deg);  /* Rota la imagen en hover */
+}
+
+/* Estilos para el menú desplegable */
+nav .navbar-dropdown {
+    position: absolute;
+    top: 100%;  /* Asegura que el menú se muestre debajo del botón */
+    right: 0;
+    background-color: #333;  /* Fondo oscuro para mejorar el contraste */
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: none;  /* Se oculta por defecto */
+    z-index: 50;  /* Asegura que el menú se muestre sobre otros elementos */
+    width: 220px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Mostrar el menú cuando se activa */
+nav .navbar-dropdown.show {
+    display: block;  /* Cambia a block cuando se activa */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos para los enlaces del menú desplegable */
+nav .navbar-dropdown a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Agrega separación entre elementos */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Último enlace sin border-bottom */
+nav .navbar-dropdown a:last-child {
+    border-bottom: none;
+}
+
+/* Efecto de hover para los enlaces del menú desplegable */
+nav .navbar-dropdown a:hover {
+    background-color: rgba(255, 255, 255, 0.1);  /* Efecto hover más sutil */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Añade un sutil resplandor en hover */
 }
 
 /* Estilos en pantallas móviles */
@@ -66,10 +162,21 @@ nav .items-center a:hover {
 
     nav .items-center {
         flex-direction: column;
+        gap: 10px;
     }
 
     nav .items-center a {
         padding: 12px 20px;
         text-align: center;
+    }
+
+    nav .flex.items-center:last-child {
+        margin-top: 10px;
+    }
+
+    /* Ajustes para el dropdown en dispositivos móviles */
+    nav .navbar-dropdown {
+        width: 100%;  /* El dropdown ocupa todo el ancho */
+        right: 0;
     }
 }
