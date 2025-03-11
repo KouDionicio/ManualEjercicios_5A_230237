@@ -1,5 +1,5 @@
+<!-- app.component.html -->
 <div class="page-container">
-
 	<app-navbar></app-navbar>
 
 	<div class="content-wrapper">
@@ -8,9 +8,10 @@
 		<div class="content-area">
 			<app-breadcrumb></app-breadcrumb>
 
-			<app-page-container></app-page-container>
+			<!-- Aquí es donde se deben cargar los componentes de las rutas -->
+			<router-outlet></router-outlet>
+
 			<app-footer></app-footer>
 		</div>
-
 	</div>
 </div>
