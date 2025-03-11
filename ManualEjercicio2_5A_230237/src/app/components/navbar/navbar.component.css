@@ -53,14 +53,14 @@ nav .flex img {
 }
 
 nav .flex span {
-    color: #f7fafc; /* Blanco sucio */
+    color: #2d7eb4; /* Blanco sucio */
     font-size: 1.5rem;
     font-weight: bold;
 }
 
 /* Avatar del usuario */
 .user-avatar {
-    border: 2px solid #edf2f7;
+    border: 2px solid #1e3852;
     background-color: #2b6cb0; /* Azul oscuro */
     border-radius: 50%;
 }
@@ -73,13 +73,13 @@ nav .flex span {
 /* Menú de navegación */
 nav .navbar-dropdown {
     background-color: #2d3748; /* Gris oscuro */
-    color: #f7fafc; /* Blanco sucio */
+    color: #1e5b83; /* Blanco sucio */
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 nav .navbar-dropdown a {
-    color: #edf2f7; /* Blanco sucio */
+    color: #024588; /* Blanco sucio */
     padding: 8px 16px;
     text-decoration: none;
     display: block;
@@ -89,7 +89,7 @@ nav .navbar-dropdown a {
 
 nav .navbar-dropdown a:hover {
     background-color: #3182ce; /* Azul brillante */
-    color: white;
+    color: rgb(206, 14, 14);
 }
 
 /* Menú desplegable */
@@ -106,7 +106,7 @@ nav button {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: #edf2f7; /* Blanco sucio */
+    color: #1a4f85; /* Blanco sucio */
     font-size: 20px;
 }
 
@@ -117,7 +117,7 @@ nav button:hover {
 /* Estilos para los enlaces del menú principal */
 nav a {
     text-decoration: none;
-    color: #edf2f7; /* Blanco sucio */
+    color: #1d5fa1; /* Blanco sucio */
     font-size: 16px;
     padding: 8px 16px;
     border-radius: 4px;
@@ -126,7 +126,7 @@ nav a {
 
 nav a:hover {
     background-color: #3182ce; /* Azul brillante al pasar el mouse */
-    color: white;
+    color: rgb(129, 23, 23);
 }
 
 /* Menú de navegación en dispositivos móviles */
@@ -140,12 +140,12 @@ nav .items-center a {
     padding: 10px 15px;
     border-radius: 5px;
     background-color: transparent;
-    color: #edf2f7;
+    color: #0d2a47;
 }
 
 nav .items-center a:hover {
     background-color: #3182ce; /* Azul al pasar el mouse */
-    color: white;
+    color: rgb(160, 17, 17);
 }
 
 /* Configuración responsive para dispositivos móviles */
