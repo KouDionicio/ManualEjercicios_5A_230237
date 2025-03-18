@@ -10,7 +10,20 @@
 		<div class="flex-grow flex justify-center space-x-8">
 			<ul class="flex space-x-8">
 				<li><a href="#" class="text-white py-2 px-4 rounded-md hover:bg-blue-500 hover:text-white transition">Home</a></li>
-				<li><a href="#" class="text-white py-2 px-4 rounded-md hover:bg-blue-500 hover:text-white transition">INICIO</a></li>
+				
+				<!-- Menú desplegable para TABLAS -->
+				<li class="relative">
+					<a href="#" class="text-white py-2 px-4 rounded-md hover:bg-blue-500 hover:text-white transition" (click)="toggleTablasDropdown()">TABLAS</a>
+					
+					<!-- Dropdown de Tablas -->
+					<ul *ngIf="dropdownTablasOpen" class="absolute bg-white text-gray-700 shadow-lg rounded-md w-48 mt-2 space-y-2 p-2 transition">
+						<li><a href="#" class="block px-4 py-2 text-sm hover:bg-blue-100">Basica</a></li>
+						<li><a href="#" class="block px-4 py-2 text-sm hover:bg-blue-100">Anime</a></li>
+						<li><a href="#" class="block px-4 py-2 text-sm hover:bg-blue-100">JSON</a></li>
+						<li><a href="#" class="block px-4 py-2 text-sm hover:bg-blue-100">AJAX</a></li>
+					</ul>
+				</li>
+
 				<li><a href="#" class="text-white py-2 px-4 rounded-md hover:bg-blue-500 hover:text-white transition">TAREAS</a></li>
 				<!-- Agregar el evento click al enlace EJERCICIOS -->
 				<li><a href="#" class="text-white py-2 px-4 rounded-md hover:bg-blue-500 hover:text-white transition" (click)="toggleEjercicios()">EJERCICIOS</a></li>
