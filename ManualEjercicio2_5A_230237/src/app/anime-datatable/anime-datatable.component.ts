@@ -4,7 +4,7 @@ import { DataTablesModule } from 'angular-datatables';
 
 @Component({
   selector: 'app-anime-datatable',
-  imports: [],
+  imports: [DataTablesModule],
   templateUrl: './anime-datatable.component.html',
   styleUrl: './anime-datatable.component.css'
 })

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-// Definir una interfaz para la estructura de cada ejercicio
 interface Ejercicio {
   titulo: string;
   unidad: string;
@@ -12,7 +11,7 @@ interface Ejercicio {
   providedIn: 'root',
 })
 export class EjercicioService {
-  // Usar la interfaz Ejercicio para definir el tipo del objeto 'ejercicios'
+
   private ejercicios: { [key: string]: Ejercicio } = {
     'Ejercicio 1': {
       titulo: 'Components in Angular',
@@ -90,7 +89,6 @@ export class EjercicioService {
 
   constructor() {}
 
-  // Ajustar el tipo de 'ejercicio' a 'string' y el valor de 'ejercicios[ejercicio]' a 'Ejercicio'
   getEjercicioInfo(ejercicio: string): Ejercicio {
     return this.ejercicios[ejercicio] || {
       titulo: 'Selecciona un ejercicio',

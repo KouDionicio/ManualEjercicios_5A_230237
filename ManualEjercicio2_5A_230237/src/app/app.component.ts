@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';  // Para enrutamiento
+import { RouterOutlet } from '@angular/router';  
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';  // Asegúrate de que FormsModule esté importado
-
-// Importar los componentes autónomos
+import { FormsModule } from '@angular/forms';  
+import { DataTablesModule } from 'angular-datatables';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { PageContainerComponent } from './components/page-container/page-container.component';
+//import { PageContainerComponent } from './components/page-container/page-container.component';
 import { ContentComponent } from './components/content/content.component';
-import { Practica1Component } from './practicas/practica1/practica1.component'; // Verifica que esta ruta sea correcta
+import { Practica1Component } from './practicas/practica1/practica1.component'; 
 import { Practica2Component } from './practicas/practica2/practica2.component';
 import { Practica3Component } from './practicas/practica3/practica3.component';
 import { Practica4Component } from './practicas/practica4/practica4.component';
@@ -25,22 +24,26 @@ import { Practica11Component } from './practicas/practica11/practica11.component
 import { Practica12Component } from './practicas/practica12/practica12.component';
 
 // Importar el servicio EjercicioService
-import { EjercicioService } from './ejercicio.service';  // Asegúrate de importar el servicio
+import { EjercicioService } from './ejercicio.service';
+import { AjaxDatatableComponent } from './ajax-datatable/ajax-datatable.component'
+import { AnimeDatatableComponent } from "./anime-datatable/anime-datatable.component";
+import { BasicDatatableComponent } from "./basic-datatable/basic-datatable.component";
+import { JsonDatatableComponent } from "./json-datatable/json-datatable.component";  // Asegúrate de importar el servicio
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
     RouterOutlet,
     MatButtonModule,
     CommonModule,
-    FormsModule,  // Asegúrate de que FormsModule está aquí
+    FormsModule,
     NavbarComponent,
     SidebarComponent,
     BreadcrumbComponent,
     FooterComponent,
-    PageContainerComponent,
     ContentComponent,
     Practica1Component,
     Practica2Component,
@@ -53,16 +56,21 @@ import { EjercicioService } from './ejercicio.service';  // Asegúrate de import
     Practica9Component,
     Practica10Component,
     Practica11Component,
-    Practica12Component  // Importa el componente de ejercicio1 (puedes agregar más ejercicios aquí)
-  ]
+    Practica12Component,
+    AjaxDatatableComponent,
+    AnimeDatatableComponent,
+    BasicDatatableComponent,
+    JsonDatatableComponent,
+    DataTablesModule
+]
 })
 export class AppComponent {
   title = 'ManualEjercicio2_5A_230237';
   showMainContent = true;
   showNavbar = true;
   showContent = false;
-  ejercicioSeleccionado: string = '';  // Variable para almacenar el ejercicio seleccionado
-
+  ejercicioSeleccionado: string | null = null;  // Variable para almacenar el ejercicio seleccionado
+  tablaSeleccionada: string | null = null;
   constructor(private ejercicioService: EjercicioService) {}
 
   // Método que se llama cuando el usuario hace clic en "Cerrar sesión"
@@ -88,4 +96,16 @@ export class AppComponent {
       this.ejercicioSeleccionado = ejercicio;  // Seleccionar el nuevo ejercicio
     }
   }
+
+  // Método para manejar la selección de tablas
+  onTablaSeleccionada(tabla: string) {
+    
+    if (this.tablaSeleccionada === tabla) {
+      this.tablaSeleccionada = null;  
+    } else {
+      this.tablaSeleccionada = tabla;  
+      this.ejercicioSeleccionado = null;  
+    }
+  }
+  
 }

@@ -10,10 +10,13 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
   @Output() logout = new EventEmitter<void>();
   @Output() ejercicioSeleccionado = new EventEmitter<string>();  // Emitir el ejercicio seleccionado
+  @Output() tablaSeleccionada = new EventEmitter<string>();  // Emitir la tabla seleccionada
+
   dropdownOpen = false;
   showEjercicios = false;
   dropdownTablasOpen = false;  // Nueva propiedad para el dropdown de Tablas
   ejercicios = Array.from({ length: 12 }, (_, i) => `Ejercicio ${i + 1}`);
+  tablas = ['Basica', 'Anime', 'JSON', 'AJAX'];  // Lista de tablas
 
   // Llamar al método para "Cerrar sesión"
   onLogout() {
@@ -33,6 +36,11 @@ export class NavbarComponent {
   // Emitir el ejercicio seleccionado
   mostrarEjercicio(ejercicio: string) {
     this.ejercicioSeleccionado.emit(ejercicio);
+  }
+
+  // Emitir la tabla seleccionada
+  mostrarTabla(tabla: string) {
+    this.tablaSeleccionada.emit(tabla);
   }
 
   // Alternar la visibilidad del dropdown de Tablas
