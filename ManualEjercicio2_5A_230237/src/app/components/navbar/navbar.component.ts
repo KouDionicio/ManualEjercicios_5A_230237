@@ -11,13 +11,14 @@ export class NavbarComponent {
   @Output() logout = new EventEmitter<void>();
   @Output() ejercicioSeleccionado = new EventEmitter<string>();  // Emitir el ejercicio seleccionado
   @Output() tablaSeleccionada = new EventEmitter<string>();  // Emitir la tabla seleccionada
+  @Output() graficaSeleccionada = new EventEmitter<string>();
 
   dropdownOpen = false;
   showEjercicios = false;
   dropdownTablasOpen = false;  // Nueva propiedad para el dropdown de Tablas
   ejercicios = Array.from({ length: 12 }, (_, i) => `Ejercicio ${i + 1}`);
   tablas = ['Basica', 'Anime', 'JSON', 'AJAX', 'Gráfica', 'Gráfica Estática', 'Gráfica JSON', 'Gráfica Ajax'];  // Lista de tablas
-
+  
   // Llamar al método para "Cerrar sesión"
   onLogout() {
     this.logout.emit();
@@ -47,4 +48,10 @@ export class NavbarComponent {
   toggleTablasDropdown() {
     this.dropdownTablasOpen = !this.dropdownTablasOpen;
   }
+
+  mostrarGrafica(grafica: string){
+    console.log("Gráfica seleccionada: ", grafica);  // Esto te ayudará a verificar que el valor se está emitiendo
+    this.graficaSeleccionada.emit(grafica);
+  }  
+
 }

@@ -1,15 +1,15 @@
 <div class="page-container" [ngClass]="{ 'full-height': !showContent, 'logged-out': showContent }">
-
 	<app-content *ngIf="showContent" [ngClass]="{ 'full-height': !showContent, 'logged-out': showContent }"
 		(contentLoaded)="onShowContent()"></app-content>
-
 
 	<app-navbar *ngIf="showNavbar" (logout)="onLogout()" (ejercicioSeleccionado)="onEjercicioSeleccionado($event)"
 		(tablaSeleccionada)="onTablaSeleccionada($event)"></app-navbar>
 
 	<div *ngIf="!showContent" class="content-wrapper">
-		<app-sidebar *ngIf="showMainContent" [ejercicioSeleccionado]="ejercicioSeleccionado || ''"></app-sidebar>
-
+		<app-sidebar *ngIf="showMainContent"
+			[ejercicioSeleccionado]="ejercicioSeleccionado || ''"
+			[tablaSeleccionada]="tablaSeleccionada || ''"
+			[graficaSeleccionada]="graficaSeleccionada || ''"></app-sidebar>
 
 		<div class="content-area">
 			<app-breadcrumb *ngIf="showMainContent"></app-breadcrumb>
@@ -37,11 +37,9 @@
 					<app-anime-datatable *ngSwitchCase="'Anime'"></app-anime-datatable>
 					<app-json-datatable *ngSwitchCase="'JSON'"></app-json-datatable>
 					<app-ajax-datatable *ngSwitchCase="'AJAX'"></app-ajax-datatable>
-					<app-grafica *ngSwitchCase="'Gráfica'"></app-grafica> <!-- Nueva tabla Gráfica -->
+					<app-grafica *ngSwitchCase="'Gráfica'"></app-grafica> 
 					<app-grafica-estatica *ngSwitchCase="'Gráfica Estática'"></app-grafica-estatica>
-					<!-- Nueva tabla Gráfica Estática -->
 					<app-grafica-json *ngSwitchCase="'Gráfica JSON'"></app-grafica-json>
-					<!-- Nueva tabla Gráfica JSON -->
 				</ng-container>
 			</div>
 
@@ -50,6 +48,5 @@
 		</div>
 	</div>
 
-	<!-- Mostrar solo el footer cuando showContent es true -->
 	<app-footer *ngIf="showContent"></app-footer>
 </div>

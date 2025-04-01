@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';  
+import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';  
+import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -10,7 +10,7 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { FooterComponent } from './components/footer/footer.component';
 //import { PageContainerComponent } from './components/page-container/page-container.component';
 import { ContentComponent } from './components/content/content.component';
-import { Practica1Component } from './practicas/practica1/practica1.component'; 
+import { Practica1Component } from './practicas/practica1/practica1.component';
 import { Practica2Component } from './practicas/practica2/practica2.component';
 import { Practica3Component } from './practicas/practica3/practica3.component';
 import { Practica4Component } from './practicas/practica4/practica4.component';
@@ -69,7 +69,7 @@ import { GraficaJsonComponent } from './grafica-json/grafica-json.component';
     GraficaComponent,
     GraficaEstaticaComponent,
     GraficaJsonComponent
-]
+  ]
 })
 export class AppComponent {
   title = 'ManualEjercicio2_5A_230237';
@@ -78,7 +78,9 @@ export class AppComponent {
   showContent = false;
   ejercicioSeleccionado: string | null = null;  // Variable para almacenar el ejercicio seleccionado
   tablaSeleccionada: string | null = null;
-  constructor(private ejercicioService: EjercicioService) {}
+  graficaSeleccionada: string | null = null;
+
+  constructor(private ejercicioService: EjercicioService) { }
 
   // Método que se llama cuando el usuario hace clic en "Cerrar sesión"
   onLogout() {
@@ -106,13 +108,25 @@ export class AppComponent {
 
   // Método para manejar la selección de tablas
   onTablaSeleccionada(tabla: string) {
-    
+
     if (this.tablaSeleccionada === tabla) {
-      this.tablaSeleccionada = null;  
+      this.tablaSeleccionada = null;
     } else {
-      this.tablaSeleccionada = tabla;  
-      this.ejercicioSeleccionado = null;  
+      this.tablaSeleccionada = tabla;
+      this.ejercicioSeleccionado = null;
     }
   }
-  
+
+  // Método para manejar la selección de gráficos
+  onGraficaSeleccionada(grafica: string) {
+    console.log("Gráfica seleccionada en app.component: ", grafica);
+    if (this.graficaSeleccionada === grafica) {
+      this.graficaSeleccionada = null;  // Desmarcar el gráfico
+    } else {
+      this.graficaSeleccionada = grafica;  // Seleccionar nueva gráfica
+      this.tablaSeleccionada = null;      // Asegurarse de que no haya tabla seleccionada
+      this.ejercicioSeleccionado = null;
+    }
+  }
+
 }

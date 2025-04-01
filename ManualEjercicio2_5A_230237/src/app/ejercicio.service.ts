@@ -87,6 +87,56 @@ export class EjercicioService {
     },
   };
 
+  private tablas: { [key: string]: Ejercicio } = {
+    'Basica': {
+      titulo: 'Tabla Básica',
+      unidad: 'Unidad 1',
+      descripcion: 'Esta tabla muestra datos básicos en una estructura de filas y columnas...',
+      objetivo: 'Mostrar datos básicos en una tabla.',
+    },
+    'Anime': {
+      titulo: 'Tabla de Anime',
+      unidad: 'Unidad 1',
+      descripcion: 'Una tabla con datos sobre animes populares...',
+      objetivo: 'Presentar información sobre animes.',
+    },
+    'JSON': {
+      titulo: 'Tabla JSON',
+      unidad: 'Unidad 1',
+      descripcion: 'Tabla que muestra datos en formato JSON...',
+      objetivo: 'Mostrar datos estructurados en formato JSON.',
+    },
+    'AJAX': {
+      titulo: 'Tabla AJAX',
+      unidad: 'Unidad 1',
+      descripcion: 'Muestra datos cargados dinámicamente mediante AJAX...',
+      objetivo: 'Cargar datos de forma asíncrona utilizando AJAX.',
+    },
+    // Agrega más tablas si es necesario
+  };
+
+  private graficas: { [key: string]: Ejercicio } = {
+    'Gráfica': {
+      titulo: 'Gráfica de Datos',
+      unidad: 'Unidad 3',
+      descripcion: 'Esta gráfica muestra datos visualizados de manera interactiva...',
+      objetivo: 'Visualizar datos de manera gráfica.',
+    },
+    'Gráfica Estática': {
+      titulo: 'Gráfica Estática',
+      unidad: 'Unidad 3',
+      descripcion: 'Una gráfica que muestra datos de forma estática...',
+      objetivo: 'Presentar datos de forma estática.',
+    },
+    'Gráfica JSON': {
+      titulo: 'Gráfica JSON',
+      unidad: 'Unidad 3',
+      descripcion: 'Gráfica que consume datos de un archivo JSON...',
+      objetivo: 'Visualizar datos provenientes de un archivo JSON.',
+    },
+  };
+  
+
   constructor() {}
 
   getEjercicioInfo(ejercicio: string): Ejercicio {
@@ -97,4 +147,24 @@ export class EjercicioService {
       objetivo: '',
     };
   }
+
+  getTablaInfo(tabla: string): Ejercicio {
+    return this.tablas[tabla] || {
+      titulo: 'Selecciona una tabla',
+      unidad: '',
+      descripcion: '',
+      objetivo: '',
+    };
+  }
+
+  getGraficaInfo(grafica: string): Ejercicio {
+    console.log("Obteniendo información para la gráfica:", grafica);
+    return this.graficas[grafica] || {
+      titulo: 'Selecciona una gráfica',
+      unidad: '',
+      descripcion: '',
+      objetivo: '',
+    };
+  }
+
 }
