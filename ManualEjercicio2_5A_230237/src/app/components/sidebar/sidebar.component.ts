@@ -1,6 +1,7 @@
 import { Component, OnChanges, Input, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';  // Para usar *ngIf, *ngFor, etc.
 import { EjercicioService } from '../../ejercicio.service'; // Asegúrate de que la ruta sea correcta
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,9 +20,11 @@ export class SidebarComponent implements OnChanges {
   descripcion: string = '';
   objetivo: string = '';
 
-  constructor(private ejercicioService: EjercicioService) { }
+  constructor(private ejercicioService: EjercicioService,  private cdr: ChangeDetectorRef) { }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log("Cambios en Sidebar:", changes);  
+    
     if (changes['ejercicioSeleccionado']) {
       this.actualizarInformacionEjercicio();
     }
@@ -29,9 +32,10 @@ export class SidebarComponent implements OnChanges {
       this.actualizarInformacionTabla();
     }
     console.log("Cambios detectados en Sidebar:", changes);  // Verifica todos los cambios
-    if (changes['graficaSeleccionada'] && this.graficaSeleccionada) {
+    if (changes['graficaSeleccionada']) {
       this.actualizarInformacionGrafica();
     }
+    this.cdr.detectChanges();
   }
 
   actualizarInformacionEjercicio() {

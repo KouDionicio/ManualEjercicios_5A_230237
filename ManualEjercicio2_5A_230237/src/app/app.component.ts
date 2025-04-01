@@ -127,6 +127,7 @@ export class AppComponent {
       this.tablaSeleccionada = null;      // Asegurarse de que no haya tabla seleccionada
       this.ejercicioSeleccionado = null;
     }
+    console.log("Nuevo valor de graficaSeleccionada:", this.graficaSeleccionada);
   }
 
 }
