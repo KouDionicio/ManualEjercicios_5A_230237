@@ -76,6 +76,7 @@ nav .flex.items-center:last-child {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
 }
 
 /* Estilo del botón de usuario */
