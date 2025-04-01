@@ -14,135 +14,262 @@ export class EjercicioService {
 
   private ejercicios: { [key: string]: Ejercicio } = {
     'Ejercicio 1': {
-      titulo: 'Components in Angular',
-      unidad: 'Unidad 2',
-      descripcion: 'En este ejercicio aprenderemos sobre los componentes en Angular, que son los bloques de construcción de las aplicaciones. Un componente consta de tres partes principales: la clase, la plantilla y los estilos.',
-      objetivo: 'Aprender a crear y usar componentes en Angular.',
+      titulo: 'Componentes Angular: Fundamentos',
+      unidad: 'Unidad 2: Arquitectura de Componentes',
+      descripcion: `Creación de componentes mediante CLI (ng generate component). 
+      - Estructura básica: @Component decorator, template HTML y estilos CSS
+      - Data binding: Interpolación {{ }}, property binding [ ] y event binding ( )
+      - Ejemplo práctico: Componente "user-card" que muestra datos de perfil`,
+      objetivo: `1. Comprender la estructura de componentes Angular
+      2. Implementar comunicación básica template-clase
+      3. Generar componentes mediante Angular CLI`
     },
     'Ejercicio 2': {
-      titulo: 'Updating the Component Class',
-      unidad: 'Unidad 2',
-      descripcion: 'En este ejercicio aprenderemos cómo actualizar la clase de un componente en Angular, permitiendo la interactividad con las plantillas y gestionando las propiedades y métodos.',
-      objetivo: 'Actualizar la clase de un componente y agregarle interactividad.',
+      titulo: 'Gestión de Estado en Componentes',
+      unidad: 'Unidad 2: Estado y Comportamiento',
+      descripcion: `Técnicas avanzadas de manejo de estado:
+      - Propiedades públicas vs privadas
+      - Métodos del ciclo de vida (ngOnInit, ngOnChanges)
+      - Uso de setters/getters para propiedades
+      Caso práctico: Componente contador con historial de cambios`,
+      objetivo: `1. Controlar el estado interno del componente
+      2. Implementar lógica reactiva
+      3. Optimizar rendimiento con OnPush change detection`
     },
     'Ejercicio 3': {
-      titulo: 'Composing Components',
-      unidad: 'Unidad 2',
-      descripcion: 'En este ejercicio se explorará cómo componer componentes en Angular, utilizando la comunicación entre componentes y su integración en una aplicación.',
-      objetivo: 'Componer varios componentes para construir aplicaciones más grandes.',
+      titulo: 'Composición de Componentes',
+      unidad: 'Unidad 2: Diseño Modular',
+      descripcion: `Patrones de composición:
+      - Componentes contenedores vs presentacionales
+      - Comunicación mediante @Input/@Output
+      - Content projection con ng-content
+      Ejemplo: Dashboard con componentes reutilizables`,
+      objetivo: `1. Diseñar arquitecturas componentizadas
+      2. Implementar comunicación padre-hijo
+      3. Crear componentes independientes y reutilizables`
     },
     'Ejercicio 4': {
-      titulo: 'Control Flow in Components - @if',
-      unidad: 'Unidad 2',
-      descripcion: 'Este ejercicio se centra en cómo controlar el flujo de la aplicación en los componentes utilizando la directiva `*ngIf` para mostrar u ocultar elementos de la vista.',
-      objetivo: 'Aprender a usar `*ngIf` para controlar la visibilidad de los elementos.',
+      titulo: 'Control de Flujo: *ngIf',
+      unidad: 'Unidad 2: Renderizado Condicional',
+      descripcion: `Directiva estructural *ngIf:
+      - Sintaxis básica y avanzada
+      - Mejores prácticas de rendimiento
+      - Alternativas: [hidden] vs *ngIf
+      Caso de uso: Sistema de permisos de usuario`,
+      objetivo: `1. Dominar renderizado condicional
+      2. Evitar problemas comunes de performance
+      3. Implementar lógica de plantillas complejas`
     },
     'Ejercicio 5': {
-      titulo: 'Control Flow in Components - @for',
-      unidad: 'Unidad 2',
-      descripcion: 'En este ejercicio aprenderemos a usar la directiva `*ngFor` para iterar sobre colecciones y mostrar listas dinámicas en la vista.',
-      objetivo: 'Utilizar `*ngFor` para iterar sobre listas y crear vistas dinámicas.',
+      titulo: 'Control de Flujo: *ngFor',
+      unidad: 'Unidad 2: Listas Dinámicas',
+      descripcion: `Renderizado de colecciones:
+      - Sintaxis básica de *ngFor
+      - trackBy para optimización
+      - Manipulación de arrays (filter, map)
+      Ejemplo: Lista paginada con búsqueda en tiempo real`,
+      objetivo: `1. Implementar listas eficientes
+      2. Manejar grandes conjuntos de datos
+      3. Dominar técnicas de optimización`
     },
     'Ejercicio 6': {
-      titulo: 'Property Binding in Angular',
-      unidad: 'Unidad 2',
-      descripcion: 'Este ejercicio trata sobre el enlace de propiedades en Angular, donde los valores de las propiedades de los componentes se pueden enlazar directamente con las propiedades de los elementos HTML.',
-      objetivo: 'Aprender a usar el enlace de propiedades para conectar los datos del componente con la vista.',
+      titulo: 'Property Binding Avanzado',
+      unidad: 'Unidad 2: Data Binding',
+      descripcion: `Técnicas avanzadas:
+      - Binding a propiedades personalizadas
+      - Uso de setters para validación
+      - Interceptores de propiedades
+      Caso práctico: Componente de rating con estrellas`,
+      objetivo: `1. Dominar flujo unidireccional de datos
+      2. Implementar validación reactiva
+      3. Crear componentes con API intuitiva`
     },
     'Ejercicio 7': {
-      titulo: 'Event Handling',
-      unidad: 'Unidad 2',
-      descripcion: 'En este ejercicio, aprenderemos cómo manejar eventos del usuario, como clics y entradas de teclado, para interactuar con la aplicación.',
-      objetivo: 'Manejar eventos en Angular para interactuar con los usuarios.',
+      titulo: 'Manejo de Eventos',
+      unidad: 'Unidad 2: Interacción',
+      descripcion: `Patrones avanzados:
+      - Event bubbling y propagación
+      - Custom events con EventEmitter
+      - Debounce y throttling nativo
+      Ejemplo: Búsqueda con autocompletado`,
+      objetivo: `1. Gestionar eventos complejos
+      2. Optimizar interacciones frecuentes
+      3. Implementar comunicación entre componentes`
     },
     'Ejercicio 8': {
-      titulo: 'Component Communication with @Input',
-      unidad: 'Unidad 2',
-      descripcion: 'Este ejercicio explica cómo pasar datos desde un componente padre a un componente hijo utilizando el decorador `@Input` en Angular.',
-      objetivo: 'Aprender a utilizar `@Input` para la comunicación entre componentes.',
+      titulo: 'Comunicación con @Input',
+      unidad: 'Unidad 2: Component Interaction',
+      descripcion: `Flujo de datos descendente:
+      - Tipado estricto con interfaces
+      - Transformación de datos on-the-fly
+      - Control de cambios con ngOnChanges
+      Ejemplo: Componente de perfil configurable`,
+      objetivo: `1. Dominar paso de datos padre→hijo
+      2. Implementar componentes configurables
+      3. Gestionar reactividad de inputs`
     },
     'Ejercicio 9': {
-      titulo: 'Component Communication with @Output',
-      unidad: 'Unidad 2',
-      descripcion: 'En este ejercicio veremos cómo enviar datos desde un componente hijo a un componente padre usando el decorador `@Output` y eventos en Angular.',
-      objetivo: 'Usar `@Output` para emitir eventos y pasar datos entre componentes.',
+      titulo: 'Comunicación con @Output',
+      unidad: 'Unidad 2: Eventos Personalizados',
+      descripcion: `Patrones de emisión:
+      - Custom payloads con tipos específicos
+      - Patrón Observer con EventEmitter
+      - Buenas prácticas de diseño de APIs
+      Caso: Formulario con validación en cascada`,
+      objetivo: `1. Implementar comunicación hijo→padre
+      2. Diseñar contratos de eventos claros
+      3. Gestionar flujos complejos de datos`
     },
     'Ejercicio 10': {
-      titulo: 'Deferrable Views',
-      unidad: 'Unidad 2',
-      descripcion: 'En este ejercicio aprenderemos sobre las vistas diferidas en Angular, una técnica para optimizar el rendimiento de la aplicación cargando componentes bajo demanda.',
-      objetivo: 'Implementar vistas diferidas en Angular para mejorar el rendimiento.',
+      titulo: 'Vistas Diferidas (Defer)',
+      unidad: 'Unidad 2: Optimización',
+      descripcion: `Técnicas de lazy loading:
+      - @defer con triggers (viewport, interaction)
+      - Manejo de estados (loading, error)
+      - Prefetching estratégico
+      Ejemplo: Dashboard con módulos bajo demanda`,
+      objetivo: `1. Reducir bundle size inicial
+      2. Mejorar métricas Core Web Vitals
+      3. Implementar carga progresiva`
     },
     'Ejercicio 11': {
-      titulo: 'Optimizing images',
-      unidad: 'Unidad 2',
-      descripcion: 'Este ejercicio trata sobre la optimización de imágenes en aplicaciones Angular, lo que mejora la velocidad de carga y la experiencia del usuario.',
-      objetivo: 'Optimizar imágenes para mejorar el rendimiento de la aplicación.',
+      titulo: 'Optimización de Imágenes',
+      unidad: 'Unidad 2: Performance',
+      descripcion: `Técnicas avanzadas:
+      - Uso de directiva NgOptimizedImage
+      - Formatos modernos (WebP/AVIF)
+      - Lazy loading nativo
+      - CDN y transformaciones on-demand`,
+      objetivo: `1. Reducir LCP (Largest Contentful Paint)
+      2. Implementar responsive images
+      3. Optimizar uso de ancho de banda`
     },
     'Ejercicio 12': {
-      titulo: 'Routing Overview',
-      unidad: 'Unidad 2',
-      descripcion: 'En este ejercicio aprenderemos sobre el enrutamiento en Angular, permitiendo navegar entre diferentes vistas o páginas dentro de una aplicación Angular.',
-      objetivo: 'Implementar y gestionar rutas para la navegación en aplicaciones Angular.',
-    },
+      titulo: 'Routing Avanzado',
+      unidad: 'Unidad 2: Navegación',
+      descripcion: `Configuración profesional:
+      - Lazy loading de rutas
+      - Guards (auth, roles, preloading)
+      - Route resolvers para data fetching
+      - Scroll restoration y state management`,
+      objetivo: `1. Implementar navegación compleja
+      2. Gestionar autenticación/autorización
+      3. Optimizar experiencia de usuario`
+    }
   };
 
   private tablas: { [key: string]: Ejercicio } = {
     'Basica': {
-      titulo: 'Tabla Básica con Angular',
-      unidad: 'Unidad 1: Fundamentos de Angular',
-      descripcion: 'Implementación de una tabla básica usando Angular Material o DataTables. Incluye características como: paginación, filtrado y ordenamiento. Ejemplo práctico con datos locales usando *ngFor.',
-      objetivo: 'Dominar la creación de tablas estáticas en Angular, entender el binding de datos y el uso de directivas estructurales.',
+      titulo: 'Tablas con Angular Material',
+      unidad: 'Unidad 3: Data Display',
+      descripcion: `Implementación profesional:
+      - MatTable con DataSource personalizado
+      - Paginación client/server-side
+      - Ordenamiento multi-columna
+      - Filtrado integrado con RxJS
+      - Exportación a CSV/Excel`,
+      objetivo: `1. Dominar MatTableDataSource
+      2. Implementar features empresariales
+      3. Manejar datasets de gran volumen`
     },
     'Anime': {
-      titulo: 'Tabla de Anime con API',
-      unidad: 'Unidad 2: Consumo de APIs',
-      descripcion: 'Tabla que consume datos de una API pública de anime (como Jikan API). Muestra cómo manejar suscripciones HTTP, loading states y errores. Incluye detalles como episodios, rating y estudios de animación.',
-      objetivo: 'Aprender a consumir APIs REST en Angular usando HttpClient y mostrar datos complejos en tablas.',
+      titulo: 'Consumo de APIs REST',
+      unidad: 'Unidad 4: Integración',
+      descripcion: `Flujo completo con Jikan API:
+      1. Servicio con HttpClient
+      2. Manejo de errores y retries
+      3. Transformación de datos con RxJS
+      4. Paginación server-side
+      5. Cache estratégico con interceptors`,
+      objetivo: `1. Consumir APIs REST eficientemente
+      2. Implementar patrones resilientes
+      3. Manejar estados de carga complejos`
     },
     'JSON': {
-      titulo: 'Tabla con Datos JSON',
-      unidad: 'Unidad 2: Manejo de Datos',
-      descripcion: 'Tabla que lee datos estructurados desde un archivo JSON local (assets/data.json). Demuestra cómo usar interfaces TypeScript para tipado seguro y transformación de datos antes de mostrarlos.',
-      objetivo: 'Practicar el manejo de archivos JSON y el tipado estático en Angular para prevenir errores.',
+      titulo: 'Manejo de Datos Locales',
+      unidad: 'Unidad 3: Data Management',
+      descripcion: `Workflow completo:
+      1. Tipado fuerte con interfaces
+      2. Carga desde assets/*.json
+      3. Transformación con operadores RxJS
+      4. Validación con Zod
+      5. Mocking para desarrollo`,
+      objetivo: `1. Implementar type safety
+      2. Dominar transformación de datos
+      3. Crear arquitecturas testables`
     },
     'AJAX': {
-      titulo: 'Tabla con Carga Asíncrona',
-      unidad: 'Unidad 3: Programación Reactiva',
-      descripcion: 'Implementación avanzada que combina DataTables con RxJS para carga dinámica. Incluye: cancelación de requests, debounce para búsquedas y manejo de observables con async pipe.',
-      objetivo: 'Entender programación reactiva aplicada a tablas y optimización de rendimiento.',
+      titulo: 'Programación Reactiva',
+      unidad: 'Unidad 4: RxJS Avanzado',
+      descripcion: `Patrones avanzados:
+      - Cancelación de requests
+      - Debounce para búsquedas
+      - Manejo de race conditions
+      - Optimización de subscripciones
+      - WebSockets en tiempo real`,
+      objetivo: `1. Dominar observables complejos
+      2. Implementar cancelación de operaciones
+      3. Optimizar performance en apps real-time`
     }
-};
+  };
 
-private graficas: { [key: string]: Ejercicio } = {
+  private graficas: { [key: string]: Ejercicio } = {
     'Gráfica': {
-      titulo: 'Gráficos Dinámicos con Chart.js',
-      unidad: 'Unidad 4: Visualización de Datos',
-      descripcion: 'Gráfico interactivo que muestra datos en tiempo real. Características: tooltips personalizados, animaciones y actualización dinámica. Integración con Angular usando ng2-charts.',
-      objetivo: 'Aprender a visualizar datos complejos y configurar gráficos responsivos.',
+      titulo: 'Visualización con Chart.js',
+      unidad: 'Unidad 5: Dashboarding',
+      descripcion: `Configuración profesional:
+      - Integración con ng2-charts
+      - Tipos: line, bar, radar, bubble
+      - Animaciones personalizadas
+      - Actualización en tiempo real
+      - Plugins: zoom, annotations`,
+      objetivo: `1. Dominar visualización de datos
+      2. Implementar dashboards interactivos
+      3. Optimizar rendimiento gráfico`
     },
     'Gráfica Estática': {
-      titulo: 'Gráficos Estáticos',
-      unidad: 'Unidad 4: Visualización Básica',
-      descripcion: 'Gráficos no interactivos para dashboards (barras, líneas, pie). Enfoque en diseño responsive y accesibilidad (ARIA labels). Uso de SVG nativo o librerías ligeras.',
-      objetivo: 'Crear visualizaciones para impresión o reportes estáticos.',
+      titulo: 'Reportes Exportables',
+      unidad: 'Unidad 5: Business Intelligence',
+      descripcion: `Generación de reportes:
+      - Highcharts para gráficos estáticos
+      - Exportación a PDF/PNG
+      - Configuración para impresión
+      - Acessibilidad (ARIA labels)
+      - Internacionalización`,
+      objetivo: `1. Crear visualizaciones para impresión
+      2. Implementar exportación profesional
+      3. Garantizar accesibilidad`
     },
     'Gráfica JSON': {
-      titulo: 'Gráficos con Datos Externos',
-      unidad: 'Unidad 4: APIs y Gráficos',
-      descripcion: 'Gráfico que se alimenta de un endpoint API REST/JSON. Manejando formatos como: {labels: [], datasets: []}. Incluye validación de datos con Zod o class-validator.',
-      objetivo: 'Dominar la transformación de datos API a formatos compatibles con librerías de gráficos.',
+      titulo: 'Data Visualization Pipeline',
+      unidad: 'Unidad 5: ETL',
+      descripcion: `Flujo completo de datos:
+      1. Consumo de API REST
+      2. Transformación a formato chart.js
+      3. Validación con JSON Schema
+      4. Caching estratégico
+      5. Manejo de errores`,
+      objetivo: `1. Dominar ETL frontend
+      2. Implementar pipelines resilientes
+      3. Garantizar consistencia de datos`
     },
     'Gráfica Ajax': {
-      titulo: 'Gráficos con Carga Asíncrona',
-      unidad: 'Unidad 5: Optimización',
-      descripcion: 'Implementación avanzada con Web Workers para procesamiento fuera del hilo principal. Features: lazy loading de librerías, virtual scrolling para grandes datasets.',
-      objetivo: 'Optimizar gráficos para datasets masivos sin bloquear el UI.',
+      titulo: 'Real-time Analytics',
+      unidad: 'Unidad 5: Streaming',
+      descripcion: `Técnicas avanzadas:
+      - WebSockets con RxJS
+      - Web Workers para procesamiento
+      - Virtual scrolling para big data
+      - Sampling estratégico
+      - Cross-tab synchronization`,
+      objetivo: `1. Implementar dashboards real-time
+      2. Manejar grandes volúmenes de datos
+      3. Optimizar uso de recursos`
     }
-};
-  
+  };
 
-  constructor() {}
+
+  constructor() { }
 
   getEjercicioInfo(ejercicio: string): Ejercicio {
     return this.ejercicios[ejercicio] || {
@@ -174,5 +301,5 @@ private graficas: { [key: string]: Ejercicio } = {
     }
     return this.graficas[grafica];
   }
-  
+
 }
