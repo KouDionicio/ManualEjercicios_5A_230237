@@ -16,7 +16,7 @@ export class NavbarComponent {
   showEjercicios = false;
   dropdownTablasOpen = false;  // Nueva propiedad para el dropdown de Tablas
   ejercicios = Array.from({ length: 12 }, (_, i) => `Ejercicio ${i + 1}`);
-  tablas = ['Basica', 'Anime', 'JSON', 'AJAX'];  // Lista de tablas
+  tablas = ['Basica', 'Anime', 'JSON', 'AJAX', 'Gráfica', 'Gráfica Estática', 'Gráfica JSON', 'Gráfica Ajax'];  // Lista de tablas
 
   // Llamar al método para "Cerrar sesión"
   onLogout() {

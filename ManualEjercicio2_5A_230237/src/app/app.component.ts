@@ -30,6 +30,10 @@ import { AnimeDatatableComponent } from "./anime-datatable/anime-datatable.compo
 import { BasicDatatableComponent } from "./basic-datatable/basic-datatable.component";
 import { JsonDatatableComponent } from "./json-datatable/json-datatable.component";  // Asegúrate de importar el servicio
 
+import { GraficaComponent } from './grafica/grafica.component';
+import { GraficaEstaticaComponent } from './grafica-estatica/grafica-estatica.component';
+import { GraficaJsonComponent } from './grafica-json/grafica-json.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -61,7 +65,10 @@ import { JsonDatatableComponent } from "./json-datatable/json-datatable.componen
     AnimeDatatableComponent,
     BasicDatatableComponent,
     JsonDatatableComponent,
-    DataTablesModule
+    DataTablesModule,
+    GraficaComponent,
+    GraficaEstaticaComponent,
+    GraficaJsonComponent
 ]
 })
 export class AppComponent {

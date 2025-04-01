@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraficaJSONComponent } from './grafica-json.component';
+import { GraficaJsonComponent } from './grafica-json.component';
 
-describe('GraficaJSONComponent', () => {
-  let component: GraficaJSONComponent;
-  let fixture: ComponentFixture<GraficaJSONComponent>;
+describe('GraficaJsonComponent', () => {
+  let component: GraficaJsonComponent;
+  let fixture: ComponentFixture<GraficaJsonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GraficaJSONComponent]
+      imports: [GraficaJsonComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GraficaJSONComponent);
+    fixture = TestBed.createComponent(GraficaJsonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

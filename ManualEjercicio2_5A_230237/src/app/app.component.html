@@ -1,51 +1,55 @@
 <div class="page-container" [ngClass]="{ 'full-height': !showContent, 'logged-out': showContent }">
-	
-	<app-content *ngIf="showContent" [ngClass]="{ 'full-height': !showContent, 'logged-out': showContent }" (contentLoaded)="onShowContent()"></app-content>
 
-  
-	<app-navbar *ngIf="showNavbar" (logout)="onLogout()"
-	  (ejercicioSeleccionado)="onEjercicioSeleccionado($event)"
-	  (tablaSeleccionada)="onTablaSeleccionada($event)"></app-navbar>
-  
+	<app-content *ngIf="showContent" [ngClass]="{ 'full-height': !showContent, 'logged-out': showContent }"
+		(contentLoaded)="onShowContent()"></app-content>
+
+
+	<app-navbar *ngIf="showNavbar" (logout)="onLogout()" (ejercicioSeleccionado)="onEjercicioSeleccionado($event)"
+		(tablaSeleccionada)="onTablaSeleccionada($event)"></app-navbar>
+
 	<div *ngIf="!showContent" class="content-wrapper">
 		<app-sidebar *ngIf="showMainContent" [ejercicioSeleccionado]="ejercicioSeleccionado || ''"></app-sidebar>
 
-  
-	  <div class="content-area">
-		<app-breadcrumb *ngIf="showMainContent"></app-breadcrumb>
-  
-		<div *ngIf="ejercicioSeleccionado">
-		  <ng-container [ngSwitch]="ejercicioSeleccionado">
-			<app-practica1 *ngSwitchCase="'Ejercicio 1'"></app-practica1>
-			<app-practica2 *ngSwitchCase="'Ejercicio 2'"></app-practica2>
-			<app-practica3 *ngSwitchCase="'Ejercicio 3'"></app-practica3>
-			<app-practica4 *ngSwitchCase="'Ejercicio 4'"></app-practica4>
-			<app-practica5 *ngSwitchCase="'Ejercicio 5'"></app-practica5>
-			<app-practica6 *ngSwitchCase="'Ejercicio 6'"></app-practica6>
-			<app-practica7 *ngSwitchCase="'Ejercicio 7'"></app-practica7>
-			<app-practica8 *ngSwitchCase="'Ejercicio 8'"></app-practica8>
-			<app-practica9 *ngSwitchCase="'Ejercicio 9'"></app-practica9>
-			<app-practica10 *ngSwitchCase="'Ejercicio 10'"></app-practica10>
-			<app-practica11 *ngSwitchCase="'Ejercicio 11'"></app-practica11>
-			<app-practica12 *ngSwitchCase="'Ejercicio 12'"></app-practica12>
-		  </ng-container>
+
+		<div class="content-area">
+			<app-breadcrumb *ngIf="showMainContent"></app-breadcrumb>
+
+			<div *ngIf="ejercicioSeleccionado">
+				<ng-container [ngSwitch]="ejercicioSeleccionado">
+					<app-practica1 *ngSwitchCase="'Ejercicio 1'"></app-practica1>
+					<app-practica2 *ngSwitchCase="'Ejercicio 2'"></app-practica2>
+					<app-practica3 *ngSwitchCase="'Ejercicio 3'"></app-practica3>
+					<app-practica4 *ngSwitchCase="'Ejercicio 4'"></app-practica4>
+					<app-practica5 *ngSwitchCase="'Ejercicio 5'"></app-practica5>
+					<app-practica6 *ngSwitchCase="'Ejercicio 6'"></app-practica6>
+					<app-practica7 *ngSwitchCase="'Ejercicio 7'"></app-practica7>
+					<app-practica8 *ngSwitchCase="'Ejercicio 8'"></app-practica8>
+					<app-practica9 *ngSwitchCase="'Ejercicio 9'"></app-practica9>
+					<app-practica10 *ngSwitchCase="'Ejercicio 10'"></app-practica10>
+					<app-practica11 *ngSwitchCase="'Ejercicio 11'"></app-practica11>
+					<app-practica12 *ngSwitchCase="'Ejercicio 12'"></app-practica12>
+				</ng-container>
+			</div>
+
+			<div *ngIf="tablaSeleccionada">
+				<ng-container [ngSwitch]="tablaSeleccionada">
+					<app-basic-datatable *ngSwitchCase="'Basica'"></app-basic-datatable>
+					<app-anime-datatable *ngSwitchCase="'Anime'"></app-anime-datatable>
+					<app-json-datatable *ngSwitchCase="'JSON'"></app-json-datatable>
+					<app-ajax-datatable *ngSwitchCase="'AJAX'"></app-ajax-datatable>
+					<app-grafica *ngSwitchCase="'Gráfica'"></app-grafica> <!-- Nueva tabla Gráfica -->
+					<app-grafica-estatica *ngSwitchCase="'Gráfica Estática'"></app-grafica-estatica>
+					<!-- Nueva tabla Gráfica Estática -->
+					<app-grafica-json *ngSwitchCase="'Gráfica JSON'"></app-grafica-json>
+					<!-- Nueva tabla Gráfica JSON -->
+				</ng-container>
+			</div>
+
+			<router-outlet></router-outlet>
+			<app-footer></app-footer>
 		</div>
-  
-		<div *ngIf="tablaSeleccionada">
-		  <ng-container [ngSwitch]="tablaSeleccionada">
-			<app-basic-datatable *ngSwitchCase="'Basica'"></app-basic-datatable>
-			<app-anime-datatable *ngSwitchCase="'Anime'"></app-anime-datatable>
-			<app-json-datatable *ngSwitchCase="'JSON'"></app-json-datatable>
-			<app-ajax-datatable *ngSwitchCase="'AJAX'"></app-ajax-datatable>
-		  </ng-container>
-		</div>
-  
-		<router-outlet></router-outlet>
-		<app-footer></app-footer>
-	  </div>
 	</div>
-  
+
 	<!-- Mostrar solo el footer cuando showContent es true -->
 	<app-footer *ngIf="showContent"></app-footer>
-  </div>
-  
+</div>
