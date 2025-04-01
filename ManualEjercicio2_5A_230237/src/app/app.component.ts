@@ -121,11 +121,11 @@ export class AppComponent {
   onGraficaSeleccionada(grafica: string) {
     console.log("Gráfica seleccionada en app.component:", grafica);
     if (this.graficaSeleccionada === grafica) {
-      this.graficaSeleccionada = '';
+      this.graficaSeleccionada = null;
     } else {
       this.graficaSeleccionada = grafica;
-      this.tablaSeleccionada = '';
-      this.ejercicioSeleccionado = '';
+      this.tablaSeleccionada = null
+      this.ejercicioSeleccionado = null;
     }
   }
 

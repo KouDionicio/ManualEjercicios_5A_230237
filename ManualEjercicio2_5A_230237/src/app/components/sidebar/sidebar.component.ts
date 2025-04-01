@@ -20,11 +20,11 @@ export class SidebarComponent implements OnChanges {
   descripcion: string = '';
   objetivo: string = '';
 
-  constructor(private ejercicioService: EjercicioService,  private cdr: ChangeDetectorRef) { }
+  constructor(private ejercicioService: EjercicioService, private cdr: ChangeDetectorRef) { }
 
   ngOnChanges(changes: SimpleChanges) {
     console.log("Cambios en Sidebar:", changes);
-    
+
     if (changes['ejercicioSeleccionado']) {
       this.actualizarInformacionEjercicio();
     }
@@ -34,11 +34,11 @@ export class SidebarComponent implements OnChanges {
     if (changes['graficaSeleccionada']) {
       this.actualizarInformacionGrafica();
     }
-  
+
     console.log("Cambios detectados en Sidebar:", changes);
     this.cdr.detectChanges();
   }
-  
+
 
   actualizarInformacionEjercicio() {
     const info = this.ejercicioService.getEjercicioInfo(this.ejercicioSeleccionado);
@@ -57,18 +57,24 @@ export class SidebarComponent implements OnChanges {
   }
 
   actualizarInformacionGrafica() {
-    console.log("Gráfica seleccionada en Sidebar:", this.graficaSeleccionada);
-    if (this.graficaSeleccionada) {
-      const info = this.ejercicioService.getGraficaInfo(this.graficaSeleccionada);
-      if (info) {
-        this.titulo = info.titulo;
-        this.unidad = info.unidad;
-        this.descripcion = info.descripcion;
-        this.objetivo = info.objetivo;
-      } else {
-        console.error("No se encontró información para:", this.graficaSeleccionada);
-      }
+    if (!this.graficaSeleccionada) {
+      this.limpiarInformacion();  // Método para resetear los campos si no hay gráfica seleccionada
+      return;
+    }
+    const info = this.ejercicioService.getGraficaInfo(this.graficaSeleccionada);
+    if (info) {
+      this.titulo = info.titulo;
+      this.unidad = info.unidad;
+      this.descripcion = info.descripcion;
+      this.objetivo = info.objetivo;
     }
   }
-  
+
+  limpiarInformacion() {
+    this.titulo = '';
+    this.unidad = '';
+    this.descripcion = '';
+    this.objetivo = '';
+  }
+
 }

@@ -1,17 +1,76 @@
 app-sidebar {
     position: fixed;
-    top: 60px; /* Deja espacio debajo del navbar */
+    top: 60px;
     left: 0;
     width: 250px;
-    height: calc(100vh - 60px); /* Ajusta la altura del sidebar según el tamaño de la pantalla */
-    background-color: #1a202c;
+    height: calc(100vh - 60px);
+    background-color: #1e293b; /* Un tono más claro que el navbar para contraste */
     color: white;
     padding: 20px;
-    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
     z-index: 5;
-    overflow-y: auto; /* Permite desplazamiento si el contenido excede la altura del sidebar */
+    overflow-y: auto;
 }
 
 .sidebar {
-    margin-top: 100px; /* Ajusta el margen superior para evitar el superpón del contenido */
+    margin-top: 20px;
+}
+
+.sidebar h2 {
+    color: #38bdf8; /* Azul claro para el título */
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #334155; /* Línea divisoria sutil */
+}
+
+.sidebar-section {
+    margin-bottom: 1.5rem;
+    background-color: #1f2937; /* Fondo ligeramente diferente */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-section-title {
+    color: #7dd3fc; /* Azul más claro para los títulos de sección */
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-section-title svg {
+    margin-right: 0.5rem;
+}
+
+.sidebar-section-content {
+    color: #e2e8f0; /* Texto más suave */
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Efecto hover para las secciones */
+.sidebar-section:hover {
+    background-color: #233044;
+    transition: background-color 0.3s ease;
+}
+
+/* Scrollbar personalizada */
+app-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+app-sidebar::-webkit-scrollbar-track {
+    background: #1a202c;
+}
+
+app-sidebar::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 3px;
+}
+
+app-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
 }

@@ -89,52 +89,57 @@ export class EjercicioService {
 
   private tablas: { [key: string]: Ejercicio } = {
     'Basica': {
-      titulo: 'Tabla Básica',
-      unidad: 'Unidad 1',
-      descripcion: 'Esta tabla muestra datos básicos en una estructura de filas y columnas...',
-      objetivo: 'Mostrar datos básicos en una tabla.',
+      titulo: 'Tabla Básica con Angular',
+      unidad: 'Unidad 1: Fundamentos de Angular',
+      descripcion: 'Implementación de una tabla básica usando Angular Material o DataTables. Incluye características como: paginación, filtrado y ordenamiento. Ejemplo práctico con datos locales usando *ngFor.',
+      objetivo: 'Dominar la creación de tablas estáticas en Angular, entender el binding de datos y el uso de directivas estructurales.',
     },
     'Anime': {
-      titulo: 'Tabla de Anime',
-      unidad: 'Unidad 1',
-      descripcion: 'Una tabla con datos sobre animes populares...',
-      objetivo: 'Presentar información sobre animes.',
+      titulo: 'Tabla de Anime con API',
+      unidad: 'Unidad 2: Consumo de APIs',
+      descripcion: 'Tabla que consume datos de una API pública de anime (como Jikan API). Muestra cómo manejar suscripciones HTTP, loading states y errores. Incluye detalles como episodios, rating y estudios de animación.',
+      objetivo: 'Aprender a consumir APIs REST en Angular usando HttpClient y mostrar datos complejos en tablas.',
     },
     'JSON': {
-      titulo: 'Tabla JSON',
-      unidad: 'Unidad 1',
-      descripcion: 'Tabla que muestra datos en formato JSON...',
-      objetivo: 'Mostrar datos estructurados en formato JSON.',
+      titulo: 'Tabla con Datos JSON',
+      unidad: 'Unidad 2: Manejo de Datos',
+      descripcion: 'Tabla que lee datos estructurados desde un archivo JSON local (assets/data.json). Demuestra cómo usar interfaces TypeScript para tipado seguro y transformación de datos antes de mostrarlos.',
+      objetivo: 'Practicar el manejo de archivos JSON y el tipado estático en Angular para prevenir errores.',
     },
     'AJAX': {
-      titulo: 'Tabla AJAX',
-      unidad: 'Unidad 1',
-      descripcion: 'Muestra datos cargados dinámicamente mediante AJAX...',
-      objetivo: 'Cargar datos de forma asíncrona utilizando AJAX.',
-    },
-    // Agrega más tablas si es necesario
-  };
+      titulo: 'Tabla con Carga Asíncrona',
+      unidad: 'Unidad 3: Programación Reactiva',
+      descripcion: 'Implementación avanzada que combina DataTables con RxJS para carga dinámica. Incluye: cancelación de requests, debounce para búsquedas y manejo de observables con async pipe.',
+      objetivo: 'Entender programación reactiva aplicada a tablas y optimización de rendimiento.',
+    }
+};
 
-  private graficas: { [key: string]: Ejercicio } = {
+private graficas: { [key: string]: Ejercicio } = {
     'Gráfica': {
-      titulo: 'Gráfica de Datos',
-      unidad: 'Unidad 3',
-      descripcion: 'Esta gráfica muestra datos visualizados de manera interactiva...',
-      objetivo: 'Visualizar datos de manera gráfica.',
+      titulo: 'Gráficos Dinámicos con Chart.js',
+      unidad: 'Unidad 4: Visualización de Datos',
+      descripcion: 'Gráfico interactivo que muestra datos en tiempo real. Características: tooltips personalizados, animaciones y actualización dinámica. Integración con Angular usando ng2-charts.',
+      objetivo: 'Aprender a visualizar datos complejos y configurar gráficos responsivos.',
     },
     'Gráfica Estática': {
-      titulo: 'Gráfica Estática',
-      unidad: 'Unidad 3',
-      descripcion: 'Una gráfica que muestra datos de forma estática...',
-      objetivo: 'Presentar datos de forma estática.',
+      titulo: 'Gráficos Estáticos',
+      unidad: 'Unidad 4: Visualización Básica',
+      descripcion: 'Gráficos no interactivos para dashboards (barras, líneas, pie). Enfoque en diseño responsive y accesibilidad (ARIA labels). Uso de SVG nativo o librerías ligeras.',
+      objetivo: 'Crear visualizaciones para impresión o reportes estáticos.',
     },
     'Gráfica JSON': {
-      titulo: 'Gráfica JSON',
-      unidad: 'Unidad 3',
-      descripcion: 'Gráfica que consume datos de un archivo JSON...',
-      objetivo: 'Visualizar datos provenientes de un archivo JSON.',
+      titulo: 'Gráficos con Datos Externos',
+      unidad: 'Unidad 4: APIs y Gráficos',
+      descripcion: 'Gráfico que se alimenta de un endpoint API REST/JSON. Manejando formatos como: {labels: [], datasets: []}. Incluye validación de datos con Zod o class-validator.',
+      objetivo: 'Dominar la transformación de datos API a formatos compatibles con librerías de gráficos.',
     },
-  };
+    'Gráfica Ajax': {
+      titulo: 'Gráficos con Carga Asíncrona',
+      unidad: 'Unidad 5: Optimización',
+      descripcion: 'Implementación avanzada con Web Workers para procesamiento fuera del hilo principal. Features: lazy loading de librerías, virtual scrolling para grandes datasets.',
+      objetivo: 'Optimizar gráficos para datasets masivos sin bloquear el UI.',
+    }
+};
   
 
   constructor() {}
