@@ -158,13 +158,16 @@ export class EjercicioService {
   }
 
   getGraficaInfo(grafica: string): Ejercicio {
-    console.log("Obteniendo información para la gráfica:", grafica);
-    return this.graficas[grafica] || {
-      titulo: 'Selecciona una gráfica',
-      unidad: '',
-      descripcion: '',
-      objetivo: '',
-    };
+    if (!grafica || !(grafica in this.graficas)) {
+      console.error("Gráfica no encontrada:", grafica);
+      return {
+        titulo: 'Selecciona una gráfica',
+        unidad: '',
+        descripcion: '',
+        objetivo: ''
+      };
+    }
+    return this.graficas[grafica];
   }
-
+  
 }

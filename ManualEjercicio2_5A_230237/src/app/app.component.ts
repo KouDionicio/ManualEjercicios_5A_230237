@@ -110,10 +110,10 @@ export class AppComponent {
   onTablaSeleccionada(tabla: string) {
 
     if (this.tablaSeleccionada === tabla) {
-      this.tablaSeleccionada = null;
+      this.tablaSeleccionada = '';
     } else {
       this.tablaSeleccionada = tabla;
-      this.ejercicioSeleccionado = null;
+      this.ejercicioSeleccionado = '';
     }
   }
 
@@ -121,11 +121,11 @@ export class AppComponent {
   onGraficaSeleccionada(grafica: string) {
     console.log("Gráfica seleccionada en app.component: ", grafica);
     if (this.graficaSeleccionada === grafica) {
-      this.graficaSeleccionada = null;  // Desmarcar el gráfico
+      this.graficaSeleccionada = '';  // Desmarcar el gráfico
     } else {
       this.graficaSeleccionada = grafica;  // Seleccionar nueva gráfica
-      this.tablaSeleccionada = null;      // Asegurarse de que no haya tabla seleccionada
-      this.ejercicioSeleccionado = null;
+      this.tablaSeleccionada = '';      // Asegurarse de que no haya tabla seleccionada
+      this.ejercicioSeleccionado = '';
     }
     console.log("Nuevo valor de graficaSeleccionada:", this.graficaSeleccionada);
   }

@@ -16,6 +16,8 @@ import { Practica12Component } from './app/practicas/practica12/practica12.compo
 import { Practica12HomeComponent } from './app/practicas/practica12-home/practica12-home.component';
 import { Practica12UserComponent } from './app/practicas/practica12-user/practica12-user.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: 'practica1', component: Practica1Component},

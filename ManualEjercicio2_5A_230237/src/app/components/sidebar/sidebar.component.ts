@@ -23,7 +23,7 @@ export class SidebarComponent implements OnChanges {
   constructor(private ejercicioService: EjercicioService,  private cdr: ChangeDetectorRef) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log("Cambios en Sidebar:", changes);  
+    console.log("Cambios en Sidebar:", changes);
     
     if (changes['ejercicioSeleccionado']) {
       this.actualizarInformacionEjercicio();
@@ -31,12 +31,14 @@ export class SidebarComponent implements OnChanges {
     if (changes['tablaSeleccionada']) {
       this.actualizarInformacionTabla();
     }
-    console.log("Cambios detectados en Sidebar:", changes);  // Verifica todos los cambios
     if (changes['graficaSeleccionada']) {
       this.actualizarInformacionGrafica();
     }
+  
+    console.log("Cambios detectados en Sidebar:", changes);
     this.cdr.detectChanges();
   }
+  
 
   actualizarInformacionEjercicio() {
     const info = this.ejercicioService.getEjercicioInfo(this.ejercicioSeleccionado);
