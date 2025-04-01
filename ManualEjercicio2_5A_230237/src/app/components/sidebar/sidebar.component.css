@@ -1,0 +1,17 @@
+app-sidebar {
+    position: fixed;
+    top: 60px; /* Deja espacio debajo del navbar */
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 60px); /* Ajusta la altura del sidebar según el tamaño de la pantalla */
+    background-color: #1a202c;
+    color: white;
+    padding: 20px;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    overflow-y: auto; /* Permite desplazamiento si el contenido excede la altura del sidebar */
+}
+
+.sidebar {
+    margin-top: 100px; /* Ajusta el margen superior para evitar el superpón del contenido */
+}
