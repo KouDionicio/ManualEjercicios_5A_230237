@@ -143,19 +143,23 @@ nav .absolute a:hover {
   color: #2b4f7c;
 }
 
-/* Estilo para la lista de Ejercicios */
-nav .absolute {
-  position: absolute;
-  top: 16px;  /* Ubica la lista de ejercicios justo debajo del navbar */
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.8);  /* Fondo más transparente */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  width: 320px;  /* Aumento el tamaño */
-  padding: 16px;
-  border-radius: 8px;
-  z-index: 100;
+/* Estilo de las listas desplegables */
+nav .relative {
+  position: relative;
 }
 
+nav .absolute {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 100;
+  width: 200px;  /* Ajusta el ancho para que encaje bien con tus listas */
+  padding: 12px;
+  top: 100%;  /* Muestra el dropdown justo debajo del item del menú */
+}
+
+/* Para el dropdown de Tablas */
 nav .absolute ul {
   padding: 0;
   margin: 0;
@@ -168,11 +172,21 @@ nav .absolute li {
 }
 
 nav .absolute a {
-  color: #4b6cb7;  /* Cambié el color a un azul más fuerte */
+  color: #4b6cb7;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 nav .absolute a:hover {
   color: #2b4f7c;
+}
+
+/* Estilo similar para Ejercicios */
+nav .absolute.ejercicios {
+  left: 0;  /* Ajustar posición para Ejercicios */
+}
+
+/* Estilo similar para Perfil */
+nav .absolute.perfil {
+  right: 0;  /* Ajustar posición para Perfil */
 }
