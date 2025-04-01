@@ -2,8 +2,11 @@
 	<app-content *ngIf="showContent" [ngClass]="{ 'full-height': !showContent, 'logged-out': showContent }"
 		(contentLoaded)="onShowContent()"></app-content>
 
-	<app-navbar *ngIf="showNavbar" (logout)="onLogout()" (ejercicioSeleccionado)="onEjercicioSeleccionado($event)"
-		(tablaSeleccionada)="onTablaSeleccionada($event)"></app-navbar>
+		<app-navbar *ngIf="showNavbar" 
+		(logout)="onLogout()" 
+		(ejercicioSeleccionado)="onEjercicioSeleccionado($event)"
+		(tablaSeleccionada)="onTablaSeleccionada($event)"
+		(graficaSeleccionada)="onGraficaSeleccionada($event)"></app-navbar>
 
 	<div *ngIf="!showContent" class="content-wrapper">
 		<app-sidebar *ngIf="showMainContent"

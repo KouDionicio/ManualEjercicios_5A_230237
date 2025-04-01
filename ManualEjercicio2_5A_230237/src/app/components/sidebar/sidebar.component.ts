@@ -57,16 +57,17 @@ export class SidebarComponent implements OnChanges {
   }
 
   actualizarInformacionGrafica() {
-    console.log("Gráfica seleccionada en Sidebar:", this.graficaSeleccionada);  // Depuración
-    const info = this.ejercicioService.getGraficaInfo(this.graficaSeleccionada);
-    console.log("Información de la gráfica:", info);  // Verifica la información que se recibe
-    if (info) {
-      this.titulo = info.titulo;
-      this.unidad = info.unidad;
-      this.descripcion = info.descripcion;
-      this.objetivo = info.objetivo;
-    } else {
-      console.error("No se encontró información para la gráfica seleccionada.");
+    console.log("Gráfica seleccionada en Sidebar:", this.graficaSeleccionada);
+    if (this.graficaSeleccionada) {
+      const info = this.ejercicioService.getGraficaInfo(this.graficaSeleccionada);
+      if (info) {
+        this.titulo = info.titulo;
+        this.unidad = info.unidad;
+        this.descripcion = info.descripcion;
+        this.objetivo = info.objetivo;
+      } else {
+        console.error("No se encontró información para:", this.graficaSeleccionada);
+      }
     }
   }
   

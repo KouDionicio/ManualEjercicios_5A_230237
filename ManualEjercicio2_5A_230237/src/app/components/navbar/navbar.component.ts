@@ -18,7 +18,7 @@ export class NavbarComponent {
   dropdownTablasOpen = false;  // Nueva propiedad para el dropdown de Tablas
   ejercicios = Array.from({ length: 12 }, (_, i) => `Ejercicio ${i + 1}`);
   tablas = ['Basica', 'Anime', 'JSON', 'AJAX', 'Gráfica', 'Gráfica Estática', 'Gráfica JSON', 'Gráfica Ajax'];  // Lista de tablas
-  
+
   // Llamar al método para "Cerrar sesión"
   onLogout() {
     this.logout.emit();
@@ -39,9 +39,13 @@ export class NavbarComponent {
     this.ejercicioSeleccionado.emit(ejercicio);
   }
 
-  // Emitir la tabla seleccionada
+  // En navbar.component.ts
   mostrarTabla(tabla: string) {
-    this.tablaSeleccionada.emit(tabla);
+    if (tabla.includes('Gráfica')) {
+      this.graficaSeleccionada.emit(tabla);
+    } else {
+      this.tablaSeleccionada.emit(tabla);
+    }
   }
 
   // Alternar la visibilidad del dropdown de Tablas
@@ -49,9 +53,9 @@ export class NavbarComponent {
     this.dropdownTablasOpen = !this.dropdownTablasOpen;
   }
 
-  mostrarGrafica(grafica: string){
+  mostrarGrafica(grafica: string) {
     console.log("Gráfica seleccionada: ", grafica);  // Esto te ayudará a verificar que el valor se está emitiendo
     this.graficaSeleccionada.emit(grafica);
-  }  
+  }
 
 }

@@ -119,15 +119,14 @@ export class AppComponent {
 
   // Método para manejar la selección de gráficos
   onGraficaSeleccionada(grafica: string) {
-    console.log("Gráfica seleccionada en app.component: ", grafica);
+    console.log("Gráfica seleccionada en app.component:", grafica);
     if (this.graficaSeleccionada === grafica) {
-      this.graficaSeleccionada = '';  // Desmarcar el gráfico
+      this.graficaSeleccionada = '';
     } else {
-      this.graficaSeleccionada = grafica;  // Seleccionar nueva gráfica
-      this.tablaSeleccionada = '';      // Asegurarse de que no haya tabla seleccionada
+      this.graficaSeleccionada = grafica;
+      this.tablaSeleccionada = '';
       this.ejercicioSeleccionado = '';
     }
-    console.log("Nuevo valor de graficaSeleccionada:", this.graficaSeleccionada);
   }
 
 }
