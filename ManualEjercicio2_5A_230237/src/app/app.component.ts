@@ -107,26 +107,24 @@ export class AppComponent {
   }
 
   // Método para manejar la selección de tablas
-  onTablaSeleccionada(tabla: string) {
-
+  onTablaSeleccionada(tabla: string | null) {
     if (this.tablaSeleccionada === tabla) {
-      this.tablaSeleccionada = '';
+      this.tablaSeleccionada = null;  // Usa null en lugar de ''
     } else {
       this.tablaSeleccionada = tabla;
-      this.ejercicioSeleccionado = '';
-    }
-  }
-
-  // Método para manejar la selección de gráficos
-  onGraficaSeleccionada(grafica: string) {
-    console.log("Gráfica seleccionada en app.component:", grafica);
-    if (this.graficaSeleccionada === grafica) {
-      this.graficaSeleccionada = null;
-    } else {
-      this.graficaSeleccionada = grafica;
-      this.tablaSeleccionada = null
+      this.graficaSeleccionada = null; // Asegura que no haya gráfica seleccionada
       this.ejercicioSeleccionado = null;
     }
   }
 
+  // Método para manejar la selección de gráficos
+  onGraficaSeleccionada(grafica: string | null) {
+    if (this.graficaSeleccionada === grafica) {
+      this.graficaSeleccionada = null;  // Usa null en lugar de ''
+    } else {
+      this.graficaSeleccionada = grafica;
+      this.tablaSeleccionada = null; // Asegura que no haya tabla seleccionada
+      this.ejercicioSeleccionado = null;
+    }
+  }
 }

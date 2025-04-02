@@ -2,15 +2,12 @@
 	<app-content *ngIf="showContent" [ngClass]="{ 'full-height': !showContent, 'logged-out': showContent }"
 		(contentLoaded)="onShowContent()"></app-content>
 
-		<app-navbar *ngIf="showNavbar" 
-		(logout)="onLogout()" 
-		(ejercicioSeleccionado)="onEjercicioSeleccionado($event)"
+	<app-navbar *ngIf="showNavbar" (logout)="onLogout()" (ejercicioSeleccionado)="onEjercicioSeleccionado($event)"
 		(tablaSeleccionada)="onTablaSeleccionada($event)"
 		(graficaSeleccionada)="onGraficaSeleccionada($event)"></app-navbar>
 
 	<div *ngIf="!showContent" class="content-wrapper">
-		<app-sidebar *ngIf="showMainContent"
-			[ejercicioSeleccionado]="ejercicioSeleccionado || ''"
+		<app-sidebar *ngIf="showMainContent" [ejercicioSeleccionado]="ejercicioSeleccionado || ''"
 			[tablaSeleccionada]="tablaSeleccionada || ''"
 			[graficaSeleccionada]="graficaSeleccionada || ''"></app-sidebar>
 
@@ -34,16 +31,23 @@
 				</ng-container>
 			</div>
 
+			<!-- Tablas -->
 			<div *ngIf="tablaSeleccionada">
 				<ng-container [ngSwitch]="tablaSeleccionada">
 					<app-basic-datatable *ngSwitchCase="'Basica'"></app-basic-datatable>
 					<app-anime-datatable *ngSwitchCase="'Anime'"></app-anime-datatable>
 					<app-json-datatable *ngSwitchCase="'JSON'"></app-json-datatable>
 					<app-ajax-datatable *ngSwitchCase="'AJAX'"></app-ajax-datatable>
-					<app-grafica *ngSwitchCase="'Gráfica'"></app-grafica> 
+				</ng-container>
+			</div>
+
+			<!-- Gráficas (separadas de las tablas) -->
+			<div *ngIf="graficaSeleccionada">
+				<ng-container [ngSwitch]="graficaSeleccionada">
+					<app-grafica *ngSwitchCase="'Gráfica'"></app-grafica>
 					<app-grafica-estatica *ngSwitchCase="'Gráfica Estática'"></app-grafica-estatica>
 					<app-grafica-json *ngSwitchCase="'Gráfica JSON'"></app-grafica-json>
-					<app-ajax-datatable *ngSwitchCase="'Gráfica Ajax'"></app-ajax-datatable>
+					<!--<app-grafica-ajax *ngSwitchCase="'Gráfica Ajax'"></app-grafica-ajax>-->
 				</ng-container>
 			</div>
 

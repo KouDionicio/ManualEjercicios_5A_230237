@@ -9,53 +9,47 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
   @Output() logout = new EventEmitter<void>();
-  @Output() ejercicioSeleccionado = new EventEmitter<string>();  // Emitir el ejercicio seleccionado
-  @Output() tablaSeleccionada = new EventEmitter<string>();  // Emitir la tabla seleccionada
-  @Output() graficaSeleccionada = new EventEmitter<string>();
+  @Output() ejercicioSeleccionado = new EventEmitter<string>();
+  @Output() tablaSeleccionada = new EventEmitter<string | null>();  // <-- Acepta string o null
+  @Output() graficaSeleccionada = new EventEmitter<string | null>(); // <-- Acepta string o null
 
   dropdownOpen = false;
   showEjercicios = false;
-  dropdownTablasOpen = false;  // Nueva propiedad para el dropdown de Tablas
+  dropdownTablasOpen = false;
   ejercicios = Array.from({ length: 12 }, (_, i) => `Ejercicio ${i + 1}`);
-  tablas = ['Basica', 'Anime', 'JSON', 'AJAX', 'Gráfica', 'Gráfica Estática', 'Gráfica JSON', 'Gráfica Ajax'];  // Lista de tablas
+  
+  opcionesTablas = ['Basica', 'Anime', 'JSON', 'AJAX'];
+  opcionesGraficas = ['Gráfica', 'Gráfica Estática', 'Gráfica JSON', 'Gráfica Ajax'];
 
-  // Llamar al método para "Cerrar sesión"
   onLogout() {
     this.logout.emit();
   }
 
-  // Alternar la visibilidad del dropdown de usuario
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
-  // Alternar la visibilidad de la lista de ejercicios
   toggleEjercicios() {
     this.showEjercicios = !this.showEjercicios;
   }
 
-  // Emitir el ejercicio seleccionado
   mostrarEjercicio(ejercicio: string) {
     this.ejercicioSeleccionado.emit(ejercicio);
   }
 
-  // En navbar.component.ts
-  mostrarTabla(tabla: string) {
-    if (tabla.includes('Gráfica')) {
-      this.graficaSeleccionada.emit(tabla);
-    } else {
-      this.tablaSeleccionada.emit(tabla);
-    }
-  }
-
-  // Alternar la visibilidad del dropdown de Tablas
   toggleTablasDropdown() {
     this.dropdownTablasOpen = !this.dropdownTablasOpen;
   }
 
-  mostrarGrafica(grafica: string) {
-    console.log("Gráfica seleccionada: ", grafica);  // Esto te ayudará a verificar que el valor se está emitiendo
-    this.graficaSeleccionada.emit(grafica);
+  mostrarTabla(tabla: string) {
+    this.tablaSeleccionada.emit(tabla);
+    this.graficaSeleccionada.emit(null); // Ahora es válido
+    this.dropdownTablasOpen = false;
   }
 
+  mostrarGrafica(grafica: string) {
+    this.graficaSeleccionada.emit(grafica);
+    this.tablaSeleccionada.emit(null); // Ahora es válido
+    this.dropdownTablasOpen = false;
+  }
 }
