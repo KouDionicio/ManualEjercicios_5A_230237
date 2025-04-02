@@ -1,0 +1,194 @@
+/* sidebar.component.css */
+app-sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background-color: #1e293b;
+    color: white;
+    padding: 25px 12px 15px; /* Aumentado padding-top a 25px */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    overflow: hidden;
+}
+
+/* Título principal - Aseguramos visibilidad */
+.sidebar h2 {
+    color: #38bdf8;
+    font-size: 1.3rem;
+    margin: 0.5rem 0 1rem 0; /* Margen superior aumentado */
+    padding: 0.8rem 0 0.5rem 0; /* Padding superior aumentado */
+    border-bottom: 1px solid #334155;
+    line-height: 1.4;
+    word-break: break-word;
+    white-space: normal;
+    overflow: visible;
+    display: block;
+    min-height: 1.8em;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Secciones de contenido */
+.sidebar-section {
+    background-color: #1f2937;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+/* Títulos de sección */
+.sidebar-section-title {
+    color: #7dd3fc;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.sidebar-section-title svg {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+}
+
+/* Contenido normal */
+.sidebar-section-content {
+    color: #e2e8f0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+}
+
+/* Contenido colapsable (2 líneas iniciales) */
+.sidebar-section-content.collapsible {
+    max-height: 3em;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+/* Efecto fade para contenido no expandido */
+.sidebar-section-content.collapsible:not(.expanded)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1.5em;
+    background: linear-gradient(to bottom,
+            rgba(31, 41, 55, 0),
+            rgba(31, 41, 55, 0.9) 80%);
+}
+
+/* Contenido expandido */
+.sidebar-section-content.collapsible.expanded {
+    max-height: 300px;
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow-y: auto;
+}
+
+/* Botón Leer más/menos */
+.read-more-btn {
+    background: transparent;
+    color: #7dd3fc;
+    border: none;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-top: 0.3rem;
+    transition: all 0.2s ease;
+    opacity: 0.9;
+    border-radius: 3px;
+}
+
+.read-more-btn:hover {
+    color: #38bdf8;
+    opacity: 1;
+    background: rgba(125, 211, 252, 0.1);
+}
+
+.read-more-btn svg {
+    width: 10px;
+    height: 10px;
+}
+
+/* Scrollbar para contenido expandido */
+.sidebar-section-content.collapsible.expanded::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar-section-content.collapsible.expanded::-webkit-scrollbar-track {
+    background: #1a202c;
+    border-radius: 2px;
+}
+
+.sidebar-section-content.collapsible.expanded::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 2px;
+}
+
+/* Efecto hover para las secciones */
+.sidebar-section:hover {
+    background-color: #233044;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Ocultar scrollbar principal cuando no es necesario */
+app-sidebar:not(.scroll-active)::-webkit-scrollbar {
+    display: none;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    app-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+        max-height: 40vh;
+        padding: 15px 10px;
+    }
+
+    .sidebar {
+        gap: 1rem;
+    }
+
+    .sidebar h2 {
+        font-size: 1.2rem;
+        padding: 0.6rem 0 0.4rem 0;
+        margin: 0.3rem 0 0.8rem 0;
+    }
+
+    .sidebar-section {
+        padding: 0.7rem;
+    }
+
+    .sidebar-section-content.collapsible {
+        max-height: 2.8em;
+    }
+}

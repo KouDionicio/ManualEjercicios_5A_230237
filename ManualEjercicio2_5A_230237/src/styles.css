@@ -1,0 +1,14 @@
+@import "tailwindcss";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Clase para ocultar los componentes de la página */
+.hide-elements {
+    display: none;
+}
+
+/* Asegúrate de que el footer y el page-container no sean ocultados */
+footer,
+.page-container {
+    display: block !important;
+}

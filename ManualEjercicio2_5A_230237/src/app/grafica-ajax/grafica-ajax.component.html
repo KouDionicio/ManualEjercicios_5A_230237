@@ -1,0 +1,15 @@
+<div class="grafica-container">
+    <h2>Gráfica de Datos en Tiempo Real</h2>
+    <p class="update-time">Última actualización: {{ currentDate | date:'medium' }}</p>
+
+    <div class="chart-wrapper">
+        <canvas id="miGrafica"></canvas>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <span class="legend-color" style="background: rgba(255, 105, 180, 0.7)"></span>
+            <span>Valores de Datos</span>
+        </div>
+    </div>
+</div>

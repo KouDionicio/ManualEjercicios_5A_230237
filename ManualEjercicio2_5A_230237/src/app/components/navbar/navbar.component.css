@@ -1,0 +1,179 @@
+/* Navbar */
+nav {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(to right, #3b82f6, #9333ea);  /* Fondo de gradiente de azul a morado */
+  padding: 12px 20px;  /* Un poco más de padding para mejor apariencia */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  /* Sombra difusa más suave */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;  /* Asegura que el navbar esté por encima de otros elementos */
+  transition: all 0.3s ease;  /* Transición suave para los efectos */
+}
+
+/* Logo (Izquierda) */
+nav .flex.items-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+nav .flex.items-center img {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;  /* Asegura que la imagen tenga bordes redondeados */
+}
+
+nav .flex.items-center span {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 10px;
+}
+
+/* Menú de navegación (Centro) */
+nav .items-center {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+nav .items-center ul {
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav .items-center li {
+  display: inline-block;
+}
+
+/* Estilo de los enlaces de navegación */
+nav .items-center a {
+  padding: 10px 20px;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+/* Hover effect para los enlaces */
+nav .items-center a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Añade un sutil resplandor */
+}
+
+/* Foto del usuario (Derecha) */
+nav .flex.items-center:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Estilo del botón de usuario */
+nav #user-menu-button {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto de hover en el botón del usuario */
+nav #user-menu-button:hover {
+  background-color: #9333ea;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(147, 51, 234, 0.6); /* Sombra en hover para un efecto más dinámico */
+}
+
+/* Estilo de la foto del usuario */
+nav #user-menu-button img {
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto de hover en la imagen del usuario */
+nav #user-menu-button img:hover {
+  transform: rotate(360deg);  /* Rota la imagen en hover */
+}
+
+/* Estilos para el menú desplegable de usuario */
+nav .absolute {
+  position: absolute;
+  top: 16px;  /* Ubica el menú del usuario justo debajo del navbar */
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.8);  /* Fondo más transparente */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 320px;  /* Aumenta el ancho del cuadro para ajustarlo mejor */
+  padding: 16px;  /* Espaciado dentro del contenedor */
+  border-radius: 8px;
+  z-index: 100;
+  max-height: 400px; /* Asegura que el cuadro no se haga excesivamente grande */
+  overflow-y: auto;  /* Permite scroll si el contenido excede el tamaño */
+}
+
+/* Estilo de los enlaces dentro del menú de usuario */
+nav .absolute ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav .absolute li {
+  padding: 12px 0;  /* Aumento el padding para separar mejor las opciones */
+  border-bottom: 1px solid #eee;
+}
+
+nav .absolute a {
+  color: #4b6cb7;  /* Color de texto azul más fuerte */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav .absolute a:hover {
+  color: #2b4f7c;
+}
+
+/* Estilo para la lista de Ejercicios */
+nav .absolute {
+  position: absolute;
+  top: 16px;  /* Ubica la lista de ejercicios justo debajo del navbar */
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);  /* Fondo más transparente */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 320px;  /* Aumento el tamaño */
+  padding: 16px;
+  border-radius: 8px;
+  z-index: 100;
+}
+
+nav .absolute ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav .absolute li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+nav .absolute a {
+  color: #4b6cb7;  /* Cambié el color a un azul más fuerte */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav .absolute a:hover {
+  color: #2b4f7c;
+}

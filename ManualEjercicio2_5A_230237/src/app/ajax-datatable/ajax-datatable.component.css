@@ -1,0 +1,105 @@
+.container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  h2 {
+    color: #82b1ff; /* Azul pastel */
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .update-time {
+    color: #a5d6a7; /* Verde pastel */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+  }
+  
+  .table-wrapper {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  #animeFansTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: #212121;
+    color: #fff;
+  }
+  
+  /* Encabezado */
+  #animeFansTable thead {
+    background: linear-gradient(135deg, #1e1e1e, #5c6bc0);
+  }
+  
+  #animeFansTable th {
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Cuerpo de la tabla */
+  #animeFansTable tbody tr:nth-child(odd) {
+    background-color: #2c2f33;
+  }
+  
+  #animeFansTable tbody tr:nth-child(even) {
+    background-color: #3c4347;
+  }
+  
+  #animeFansTable td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #5c6bc0;
+    transition: all 0.3s ease;
+  }
+  
+  /* Efecto hover */
+  #animeFansTable tbody tr:hover td {
+    background-color: rgba(255, 105, 180, 0.1);
+    color: #ff79c6;
+    transform: translateX(5px);
+  }
+  
+  /* Colores específicos por columna */
+  #animeFansTable td:nth-child(2) { /* Nombre */
+    color: #82b1ff;
+    font-weight: 600;
+  }
+  
+  #animeFansTable td:nth-child(4) { /* Edad */
+    color: #ff79c6;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  #animeFansTable td:nth-child(5) { /* Anime Favorito */
+    color: #a5d6a7;
+    font-style: italic;
+  }
+  
+  .no-data {
+    text-align: center;
+    color: #ff5252 !important;
+    font-weight: bold;
+    padding: 20px !important;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+    
+    #animeFansTable th, 
+    #animeFansTable td {
+      padding: 10px 12px;
+      font-size: 0.85rem;
+    }
+  }
