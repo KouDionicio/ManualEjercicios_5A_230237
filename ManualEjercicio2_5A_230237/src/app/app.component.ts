@@ -33,6 +33,7 @@ import { JsonDatatableComponent } from "./json-datatable/json-datatable.componen
 import { GraficaComponent } from './grafica/grafica.component';
 import { GraficaEstaticaComponent } from './grafica-estatica/grafica-estatica.component';
 import { GraficaJsonComponent } from './grafica-json/grafica-json.component';
+import { GraficaAjaxComponent } from './grafica-ajax/grafica-ajax.component';
 
 @Component({
   selector: 'app-root',
@@ -68,7 +69,8 @@ import { GraficaJsonComponent } from './grafica-json/grafica-json.component';
     DataTablesModule,
     GraficaComponent,
     GraficaEstaticaComponent,
-    GraficaJsonComponent
+    GraficaJsonComponent,
+    GraficaAjaxComponent
   ]
 })
 export class AppComponent {

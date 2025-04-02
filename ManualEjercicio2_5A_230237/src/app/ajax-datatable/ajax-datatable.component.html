@@ -1,1 +1,30 @@
-<p>ajax-datatable works!</p>
+<div class="container">
+    <h2>Tabla de Fans de Anime</h2>
+    <p class="update-time">Última actualización: {{ currentDate | date:'medium' }}</p>
+
+    <div class="table-wrapper">
+        <table id="animeFansTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Anime Favorito</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.nombre || 'Sin nombre' }}</td>
+                    <td>{{ item.apellido || 'Sin apellido' }}</td>
+                    <td>{{ item.edad || 'N/A' }}</td>
+                    <td>{{ item.animeFavorito || 'No especificado' }}</td>
+                </tr>
+                <tr *ngIf="data.length === 0">
+                    <td colspan="5" class="no-data">No hay datos disponibles</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
